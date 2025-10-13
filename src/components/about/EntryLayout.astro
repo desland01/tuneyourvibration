@@ -1,0 +1,308 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import Button from "@components/common/Button.astro";
+import TestimonialsGrid from "@components/common/TestimonialsGrid.astro";
+import { googleReviews } from "@/lib/googleReviews";
+import type { AboutEntry } from "@/types";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  entry: AboutEntry;
+}
+
+const { entry } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  hero,
+  essence,
+  modalities,
+  journey,
+  lineage,
+  values,
+  cta,
+} = entry.data;
+const resolveImageSrc = (img: any) =>
+  typeof img === "string" ? img : img?.src;
+const portraitAsset = hero.portrait ?? image;
+const portraitSrc = resolveImageSrc(portraitAsset);
+const portraitImage = typeof portraitAsset === "string" ? null : portraitAsset;
+const metaImage = resolveImageSrc(hero.portrait ?? image);
+const { Content } = await render(entry);
+const testimonials = googleReviews;
+const hasBody = Boolean(entry.body && entry.body.trim().length > 0);
+const primaryCta = {
+  label: cta.primary.label,
+  link: cta.primary.link,
+  newtab: cta.primary.newtab ?? false,
+};
+const secondaryCta = cta.secondary
+  ? {
+      label: cta.secondary.label,
+      link: cta.secondary.link,
+      newtab: cta.secondary.newtab ?? false,
+    }
+  : null;
+---
+
+<BaseLayout title={title} description={description} image={metaImage}>
+  <section class="section pt-8 lg:pt-12">
+    <div class="container">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div class="space-y-5">
+          <span class="inline-block rounded-full border border-border/60 px-4 py-1 text-xs uppercase tracking-[0.35em] glow-caption">
+            {hero.eyebrow}
+          </span>
+          <h1 class="text-h2 md:text-h1 glow-heading hero-heading">
+            {hero.heading}
+          </h1>
+          <p class="text-lg leading-relaxed glow-body">
+            {hero.subheading}
+          </p>
+          {essence.description && (
+            <div class="glass rounded-[32px] p-6 text-base leading-relaxed glow-body">
+              {essence.description}
+            </div>
+          )}
+          {hero.badges.length > 0 && (
+            <ul class="grid gap-3 text-xs uppercase tracking-[0.35em]">
+              {hero.badges.map((badge) => (
+                <li class="glass flex items-center gap-3 rounded-[20px] px-4 py-2">
+                  <span class="inline-block h-2 w-2 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.6)]" />
+                  <span class="glow-caption">{badge}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div class="mx-auto w-full max-w-[480px]">
+          {portraitSrc && (
+            <div class="relative aspect-[4/5] overflow-hidden rounded-[32px] border border-border/40 bg-gradient-to-br from-bg-s/60 to-bg-s/10 shadow-[0_32px_60px_rgba(9,2,24,0.4)] dark:border-darkmode-border/40">
+              {typeof portraitAsset === "string" ? (
+                <img
+                  src={portraitSrc}
+                  alt={hero.portraitAlt || imageAlt}
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              ) : portraitImage ? (
+                <Image
+                  src={portraitImage}
+                  alt={hero.portraitAlt || imageAlt}
+                  width={960}
+                  height={1200}
+                  sizes="(min-width: 1280px) 480px, (min-width: 1024px) 42vw, (min-width: 768px) 55vw, 88vw"
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              ) : null}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {essence.highlights.length > 0 && (
+    <section class="section pt-0">
+      <div class="container">
+        <div class="row justify-center text-center mb-10">
+          <div class="lg:col-8">
+            <h2 class="text-h3 font-primary text-txt-p dark:text-darkmode-txt-p">
+              {essence.heading}
+            </h2>
+          </div>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {essence.highlights.map((highlight) => (
+            <div class="glass h-full rounded-[28px] border border-border/40 p-6 text-left dark:border-darkmode-border/40">
+              <h3 class="text-xl font-semibold text-txt-p dark:text-darkmode-txt-p">
+                {highlight.title}
+              </h3>
+              <p class="mt-3 text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+                {highlight.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {modalities.cards.length > 0 && (
+    <section class="section pt-0">
+      <div class="container">
+        <div class="row justify-center text-center mb-10">
+          <div class="lg:col-8">
+            <h2 class="text-h3 font-primary text-txt-p dark:text-darkmode-txt-p">
+              {modalities.heading}
+            </h2>
+          </div>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {modalities.cards.map((card) => (
+            <div class="rounded-[28px] border border-border/40 bg-gradient-to-br from-bg-s/60 to-bg-s/20 p-6 shadow-[0_24px_48px_rgba(9,2,24,0.22)] dark:border-darkmode-border/40 dark:from-darkmode-bg-s/60 dark:to-darkmode-bg-s/20">
+              <h3 class="text-xl font-semibold glow-heading">
+                {card.title}
+              </h3>
+              <p class="mt-3 text-base leading-relaxed glow-body">
+                {card.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+        <div class="glass h-full rounded-[32px] border border-border/40 p-8 dark:border-darkmode-border/40">
+          <h2 class="text-h3 font-primary text-txt-p dark:text-darkmode-txt-p">
+            {journey.heading}
+          </h2>
+          <p class="mt-3 text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+            {journey.description}
+          </p>
+          <div class="mt-8 space-y-6">
+            {journey.steps.map((step, index) => (
+              <div class="flex gap-4 rounded-2xl border border-border/40 bg-bg-s/30 p-4 dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/30">
+                <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/80 to-purple-500/70 text-lg font-semibold text-white shadow-[0_12px_24px_rgba(108,92,231,0.35)]">
+                  {index + 1}
+                </div>
+                <div class="space-y-2">
+                  <h3 class="text-lg font-semibold text-txt-p dark:text-darkmode-txt-p">
+                    {step.title}
+                  </h3>
+                  <p class="text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="space-y-8">
+          <div class="rounded-[32px] border border-border/40 bg-gradient-to-br from-rose-500/20 via-purple-500/10 to-indigo-500/20 p-8 dark:border-darkmode-border/40">
+            <h2 class="text-h3 font-primary text-txt-p dark:text-darkmode-txt-p">
+              {lineage.heading}
+            </h2>
+            <ul class="mt-6 space-y-4">
+              {lineage.items.map((item) => (
+                <li class="rounded-2xl border border-border/40 bg-bg-s/40 px-5 py-4 text-left dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/40">
+                  <p class="text-base font-semibold text-txt-p dark:text-darkmode-txt-p">
+                    {item.label}
+                  </p>
+                  {item.caption && (
+                    <p class="mt-1 text-sm text-txt-p/70 dark:text-darkmode-txt-p/70">
+                      {item.caption}
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {values.columns.length > 0 && (
+            <div class="glass rounded-[32px] border border-border/40 p-8 dark:border-darkmode-border/40">
+              <h2 class="text-h3 font-primary text-txt-p dark:text-darkmode-txt-p">
+                {values.heading}
+              </h2>
+              <div class="mt-6 grid gap-6 md:grid-cols-2">
+                {values.columns.map((column) => (
+                  <div class="space-y-3">
+                    <h3 class="text-lg font-semibold text-txt-p dark:text-darkmode-txt-p">
+                      {column.title}
+                    </h3>
+                    <ul class="space-y-2 text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+                      {column.points.map((point) => (
+                        <li class="flex gap-3">
+                          <span class="mt-2 inline-block h-2 w-2 rounded-full bg-accent" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {hasBody && (
+    <section class="section pt-0">
+      <div class="container">
+        <div class="glass rounded-[36px] border border-border/40 p-10 dark:border-darkmode-border/40">
+          <div class="prose prose-invert max-w-none">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="rounded-[36px] border border-border/40 bg-gradient-to-r from-amber-500/25 via-purple-500/15 to-teal-500/20 p-10 text-center dark:border-darkmode-border/40">
+        <h2 class="text-h2 font-primary text-txt-p dark:text-darkmode-txt-p">
+          {cta.heading}
+        </h2>
+        <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+          {cta.description}
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <Button label={primaryCta.label} link={primaryCta.link} newtab={primaryCta.newtab} />
+          {secondaryCta && (
+            <Button
+              label={secondaryCta.label}
+              link={secondaryCta.link}
+              newtab={secondaryCta.newtab}
+              type="secondary"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="glass overflow-hidden rounded-[36px] border border-border/40 dark:border-darkmode-border/40">
+            <div class="p-8 md:p-10 text-center">
+              <h3 class="text-2xl font-semibold text-txt-p dark:text-darkmode-txt-p">
+                Find the Kathmandu sanctuary
+              </h3>
+              <p class="mt-3 text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+                Tap the map to open Tune Your Vibration Energy Healing on Google Maps and chart your route to Christina's studio.
+              </p>
+            </div>
+            <div class="h-72 sm:h-96 md:h-[28rem]">
+              <iframe
+                title="Tune Your Vibration Energy Healing on Google Maps"
+                src="https://maps.google.com/maps?q=place_id:ChIJNWBWiKEhVIgRsKh_4UBCKTk&output=embed"
+                class="h-full w-full border-0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsGrid testimonials={testimonials} heading="Client reflections from Google" />
+</BaseLayout>

@@ -4,6 +4,7 @@ import Share from "@components/common/Share.astro";
 import { Image } from "astro:assets";
 import BaseLayout from "@components/base/BaseLayout.astro";
 import { upperHumanize, markdownify, slugify } from "@/lib/textConverter";
+import { resolveImage } from "@/lib/resolveImage";
 
 import {
   FaRegClock,
@@ -30,9 +31,13 @@ const {
   instructions,
   notes,
 } = entry.data;
+const coverImage = resolveImage(image);
+const coverWidth = coverImage?.width ?? 1920;
+const coverHeight = coverImage?.height ?? 1080;
+const metaImage = coverImage?.src ?? (typeof image === "string" ? image : image?.src);
 ---
 
-<BaseLayout title={title} description={description} image={image?.src}>
+<BaseLayout title={title} description={description} image={metaImage}>
   <section class="section">
     <div class="container">
       <div class="row justify-center">
@@ -41,19 +46,29 @@ const {
           <h1 set:html={title} class="p-2 col basis-full min-w-72" />
           <!-- Cover Photo -->
           {
-            image && (
+            (coverImage || image) && (
               <div class="col basis-2/3 p-2 min-w-72">
                 <div class="glass rounded-lg intersect:animate-fadeDown opacity-0">
-                  <Image
-                    class="w-full rounded-lg"
-                    src={image}
-                    alt={imageAlt}
-                    width={1920}
-                    height={1080}
-                    sizes="(min-width: 1280px) 60vw, (min-width: 768px) 90vw, 100vw"
-                    loading="eager"
-                    decoding="async"
-                  />
+                  {coverImage ? (
+                    <Image
+                      class="w-full rounded-lg"
+                      src={coverImage}
+                      alt={imageAlt}
+                      width={coverWidth}
+                      height={coverHeight}
+                      sizes="(min-width: 1280px) 60vw, (min-width: 768px) 90vw, 100vw"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  ) : (
+                    <img
+                      class="w-full rounded-lg"
+                      src={typeof image === "string" ? image : image?.src}
+                      alt={imageAlt}
+                      loading="eager"
+                      decoding="async"
+                    />
+                  )}
                 </div>
               </div>
             )

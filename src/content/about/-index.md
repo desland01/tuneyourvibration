@@ -8,7 +8,7 @@ hero:
   eyebrow: About Christina
   heading: Holding sacred sound for the sensitive and heart-led
   subheading: I weave crystal sound, Tree of Life grid coding, and intuitive channeling so your nervous system can exhale, integrate, and ignite its own wisdom.
-  portrait: "/images/uploads/trekking/trek-profile-image.webp"
+  portrait: "../../assets/trekking/trek-profile-image.webp"
   portraitAlt: Christina preparing crystal bowls inside her Kathmandu studio
   badges:
     - Virtual + Kathmandu ceremonies

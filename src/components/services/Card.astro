@@ -3,6 +3,7 @@ import Button from "@components/common/Button.astro";
 import type { ServicesEntry } from "@/types";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import { resolveImage } from "@/lib/resolveImage";
 
 interface Props {
   entry: ServicesEntry;
@@ -57,6 +58,9 @@ const accentIcons = [
   "solar:planet-bold-duotone",
   "solar:radar-2-bold-duotone",
 ];
+const cardImage = resolveImage(data.image);
+const cardWidth = cardImage?.width ?? 600;
+const cardHeight = cardImage?.height ?? 800;
 
 const normalizeBenefit = (benefit: any, index: number) => {
   const label =
@@ -94,19 +98,29 @@ const serviceUrl = `/services/${data.slug ?? fallbackSlug}`;
   <article
     class={`glass relative z-10 flex h-full w-full flex-col rounded-3xl border border-border/40 p-4 text-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:border-accent/60 group-focus-within:-translate-y-1 group-focus-within:border-accent/60 dark:border-darkmode-border/40 ${highlight ? "shadow-[0_28px_60px_rgba(92,47,172,0.35)]" : ""}`}
   >
-    {data.image && (
+    {(cardImage || data.image) && (
       <div class="mb-3 overflow-hidden rounded-[20px] border border-border/40 bg-bg-s/40 dark:border-darkmode-border/40">
         <div class="relative aspect-[3/4] w-full">
-          <Image
-            src={data.image}
-            alt={data.imageAlt}
-            width={600}
-            height={800}
-            sizes="(min-width: 1280px) 320px, (min-width: 1024px) 28vw, (min-width: 640px) 40vw, 84vw"
-            class="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
+          {cardImage ? (
+            <Image
+              src={cardImage}
+              alt={data.imageAlt}
+              width={cardWidth}
+              height={cardHeight}
+              sizes="(min-width: 1280px) 320px, (min-width: 1024px) 28vw, (min-width: 640px) 40vw, 84vw"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <img
+              src={typeof data.image === "string" ? data.image : data.image?.src}
+              alt={data.imageAlt}
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
         </div>
       </div>
     )}

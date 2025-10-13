@@ -38,5 +38,6 @@ Dark mode swaps the text, background, border, and shadow tokens as defined in `s
 - `npm run style:verify` compiles Tailwind output and confirms that critical selectors (`.prose`, `.glass`, `intersect:animate-fadeUp`) and design tokens exist. The command fails if they disappear.
 - `npm run lint:preflight` runs `astro check` followed by `style:verify`. Use it before every PR or handoff.
 - Tokens live in `src/styles/tokens.scss` and are consumed in `base.scss`, `glass.scss`, and Tailwind configuration. Do not hard-code color or shadow values elsewhere—reference the variables instead.
+- **Images**: always resolve Markdown front-matter paths with `resolveImage` (`@/lib/resolveImage`) before handing them to `<Image>`. If a file is outside `src/assets`, fall back to a plain `<img>` so builds never explode when a string sneaks in. Hero visuals are clamped to 520px max width on services and 480px on the home/about heroes to keep layouts balanced.
 
 Keep this file updated whenever a brand decision changes the palette, fonts, or spacing system.

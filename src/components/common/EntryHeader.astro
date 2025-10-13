@@ -9,6 +9,7 @@ import {
 } from "@/lib/textConverter";
 
 import { Image } from "astro:assets";
+import { resolveImage } from "@/lib/resolveImage";
 import {
   FaRegCalendarAlt,
   FaRegFolder,
@@ -70,6 +71,16 @@ const {
   modDate,
   complexity,
 } = entry.data as EntryData;
+const headerImage = resolveImage(image);
+const headerWidth = headerImage?.width ?? 1200;
+const headerHeight = headerImage?.height ?? 500;
+const headerSrc =
+  headerImage?.src ??
+  (typeof image === "string"
+    ? image
+    : typeof image === "object" && image && "src" in image
+      ? (image as any).src
+      : undefined);
 
 categories?.sort((a: string, b: string) => a.localeCompare(b));
 tags?.sort((a: string, b: string) => a.localeCompare(b));
@@ -77,18 +88,28 @@ tags?.sort((a: string, b: string) => a.localeCompare(b));
 
 <div class="mt-2">
   {
-    image && showImage && (
+    showImage && headerSrc && (
       <div class="mb-8 glass rounded-lg intersect:animate-fadeDown opacity-0 intersect-no-queue">
-        <Image
-          class="w-full rounded-lg"
-          src={image}
-          alt={imageAlt || ""}
-          height={500}
-          width={1200}
-          sizes="(min-width: 1200px) 1100px, 100vw"
-          loading="eager"
-          decoding="async"
-        />
+        {headerImage ? (
+          <Image
+            class="w-full rounded-lg"
+            src={headerImage}
+            alt={imageAlt || ""}
+            height={headerHeight}
+            width={headerWidth}
+            sizes="(min-width: 1200px) 1100px, 100vw"
+            loading="eager"
+            decoding="async"
+          />
+        ) : (
+          <img
+            class="w-full rounded-lg"
+            src={headerSrc}
+            alt={imageAlt || ""}
+            loading="eager"
+            decoding="async"
+          />
+        )}
       </div>
     )
   }

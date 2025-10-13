@@ -3,6 +3,7 @@ import BaseLayout from "@components/base/BaseLayout.astro";
 import Button from "@components/common/Button.astro";
 import TestimonialsGrid from "@components/common/TestimonialsGrid.astro";
 import { googleReviews } from "@/lib/googleReviews";
+import { resolveImage } from "@/lib/resolveImage";
 import type { AboutEntry } from "@/types";
 import { render } from "astro:content";
 import { Image } from "astro:assets";
@@ -25,12 +26,16 @@ const {
   values,
   cta,
 } = entry.data;
-const resolveImageSrc = (img: any) =>
-  typeof img === "string" ? img : img?.src;
 const portraitAsset = hero.portrait ?? image;
-const portraitSrc = resolveImageSrc(portraitAsset);
-const portraitImage = typeof portraitAsset === "string" ? null : portraitAsset;
-const metaImage = resolveImageSrc(hero.portrait ?? image);
+const portraitImage = resolveImage(portraitAsset);
+const fallbackMetaImage = resolveImage(image);
+const portraitSrc =
+  portraitImage?.src ??
+  (typeof portraitAsset === "string" ? portraitAsset : undefined);
+const metaImage =
+  portraitImage?.src ??
+  fallbackMetaImage?.src ??
+  (typeof image === "string" ? image : image?.src);
 const { Content } = await render(entry);
 const testimonials = googleReviews;
 const hasBody = Boolean(entry.body && entry.body.trim().length > 0);
@@ -81,7 +86,19 @@ const secondaryCta = cta.secondary
         <div class="mx-auto w-full max-w-[480px]">
           {portraitSrc && (
             <div class="relative aspect-[4/5] overflow-hidden rounded-[32px] border border-border/40 bg-gradient-to-br from-bg-s/60 to-bg-s/10 shadow-[0_32px_60px_rgba(9,2,24,0.4)] dark:border-darkmode-border/40">
-              {typeof portraitAsset === "string" ? (
+              {portraitImage ? (
+                <Image
+                  src={portraitImage}
+                  alt={hero.portraitAlt || imageAlt}
+                  width={Math.min(portraitImage.width ?? 960, 960)}
+                  height={Math.min(portraitImage.height ?? 1200, 1200)}
+                  sizes="(min-width: 1280px) 480px, (min-width: 1024px) 42vw, (min-width: 768px) 55vw, 88vw"
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              ) : (
                 <img
                   src={portraitSrc}
                   alt={hero.portraitAlt || imageAlt}
@@ -90,19 +107,7 @@ const secondaryCta = cta.secondary
                   decoding="async"
                   fetchpriority="high"
                 />
-              ) : portraitImage ? (
-                <Image
-                  src={portraitImage}
-                  alt={hero.portraitAlt || imageAlt}
-                  width={960}
-                  height={1200}
-                  sizes="(min-width: 1280px) 480px, (min-width: 1024px) 42vw, (min-width: 768px) 55vw, 88vw"
-                  class="h-full w-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="high"
-                />
-              ) : null}
+              )}
             </div>
           )}
         </div>
@@ -291,7 +296,7 @@ const secondaryCta = cta.secondary
             <div class="h-72 sm:h-96 md:h-[28rem]">
               <iframe
                 title="Tune Your Vibration Energy Healing on Google Maps"
-                src="https://maps.google.com/maps?q=place_id:ChIJNWBWiKEhVIgRsKh_4UBCKTk&output=embed"
+                src="https://maps.google.com/maps?q=27.7219,85.3614+(Tune%20Your%20Vibration%20Energy%20Healing)&z=16&output=embed"
                 class="h-full w-full border-0"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"

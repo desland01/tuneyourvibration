@@ -1,6 +1,7 @@
 ---
 import type { DocsEntry } from "@/types";
 import { Image } from "astro:assets";
+import { resolveImage } from "@/lib/resolveImage";
 
 interface Props {
   entry: DocsEntry;
@@ -8,6 +9,9 @@ interface Props {
 
 const { entry } = Astro.props;
 const { title, image, imageAlt } = entry.data;
+const coverImage = resolveImage(image);
+const coverWidth = coverImage?.width ?? 1280;
+const coverHeight = coverImage?.height ?? 720;
 ---
 
 <div
@@ -20,17 +24,27 @@ const { title, image, imageAlt } = entry.data;
     >
       <div class="relative rounded-lg pb-9/16 overflow-hidden">
         {
-          image && (
-            <Image
-              class="absolute object-cover w-full h-full group-hover:scale-[105%] transition-all duration-300"
-              src={image}
-              alt={imageAlt}
-              width={1280}
-              height={720}
-              sizes="(min-width: 1280px) 380px, (min-width: 1024px) 32vw, 90vw"
-              loading="eager"
-              decoding="async"
-            />
+          (coverImage || image) && (
+            coverImage ? (
+              <Image
+                class="absolute object-cover w-full h-full group-hover:scale-[105%] transition-all duration-300"
+                src={coverImage}
+                alt={imageAlt}
+                width={coverWidth}
+                height={coverHeight}
+                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 32vw, 90vw"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
+              <img
+                class="absolute object-cover w-full h-full group-hover:scale-[105%] transition-all duration-300"
+                src={typeof image === "string" ? image : image?.src}
+                alt={imageAlt}
+                loading="eager"
+                decoding="async"
+              />
+            )
           )
         }
         <div

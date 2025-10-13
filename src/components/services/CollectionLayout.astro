@@ -4,6 +4,7 @@ import Button from "@components/common/Button.astro";
 import Card from "@components/services/Card.astro";
 import type { ServicesEntry } from "@/types";
 import { Image } from "astro:assets";
+import { resolveImage } from "@/lib/resolveImage";
 
 interface ServiceGroup {
   id: string;
@@ -103,22 +104,35 @@ const normalizeBenefit = (value: any) =>
                 data.location,
                 priceLabel ? `Exchange: ${priceLabel}` : null,
               ].filter(Boolean);
+              const featureImage = resolveImage(data.image);
+              const featureWidth = featureImage?.width ?? 640;
+              const featureHeight = featureImage?.height ?? 800;
               return (
                 <div class="glass rounded-[40px] border border-border/40 p-8 md:p-12 dark:border-darkmode-border/40">
                   <div class="flex flex-col gap-10 lg:flex-row lg:items-center">
-                    {data.image && (
+                    {(featureImage || data.image) && (
                       <div class="mx-auto w-full max-w-[420px] overflow-hidden rounded-[32px] border border-border/40 bg-bg-s/40 dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/40">
                         <div class="relative aspect-[4/5] w-full">
-                          <Image
-                            src={data.image}
-                            alt={data.imageAlt}
-                            width={640}
-                            height={800}
-                            sizes="(min-width: 1280px) 360px, (min-width: 1024px) 32vw, 80vw"
-                            class="h-full w-full object-cover"
-                            loading="lazy"
-                            decoding="async"
-                          />
+                          {featureImage ? (
+                            <Image
+                              src={featureImage}
+                              alt={data.imageAlt}
+                              width={featureWidth}
+                              height={featureHeight}
+                              sizes="(min-width: 1280px) 360px, (min-width: 1024px) 32vw, 80vw"
+                              class="h-full w-full object-cover"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          ) : (
+                            <img
+                              src={typeof data.image === "string" ? data.image : data.image?.src}
+                              alt={data.imageAlt}
+                              class="h-full w-full object-cover"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          )}
                         </div>
                       </div>
                     )}

@@ -25,6 +25,10 @@ export default defineConfig({
     defaultStrategy: "hover"
   },
 
+  session: {
+    driver: "memory",
+  },
+
   image: {
     service: {
       entrypoint: "astro/assets/services/sharp",

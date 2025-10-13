@@ -20,8 +20,8 @@ Additional entries will be appended as the audit advances through each directory
 
 ### astro.config.mjs
 - **Astro Doc References:** Configuration overview (llms-full.txt §§ “Astro Configuration”, “Integrations”, “Image Service”), Islands architecture sections reviewed earlier.
-- **Compliance Summary:** Uses supported integrations (`@astrojs/react`, `@astrojs/mdx`, `@astrojs/sitemap`, `astro-icon`) and Cloudflare adapter aligned with server-first guidance. Prefetch default, Markdown plugins, and alias map follow documented patterns. Tailwind Vite plugin registered per Astro + Tailwind instructions.
-- **Follow-up Actions:** Confirm `image.service.config.entrypoint` override matches Astro’s documented API (ensure sharp service compiled options accept nested `config.entrypoint`). Verify future sections of llms-full.txt for image service configuration to validate syntax. Fallback site URL now points to `https://tuneyourvibration.com`.
+- **Compliance Summary:** Uses supported integrations (`@astrojs/react`, `@astrojs/mdx`, `@astrojs/sitemap`, `astro-icon`) and Cloudflare adapter aligned with server-first guidance. Prefetch default, Markdown plugins, and alias map follow documented patterns. Tailwind Vite plugin registered per Astro + Tailwind instructions. Sessions now explicitly pinned to the in-memory driver to avoid Cloudflare KV binding requirements until persistent storage is provisioned.
+- **Follow-up Actions:** Confirm `image.service.config.entrypoint` override matches Astro’s documented API (ensure sharp service compiled options accept nested `config.entrypoint`). Verify future sections of llms-full.txt for image service configuration to validate syntax. Fallback site URL now points to `https://tuneyourvibration.com`. When ready for stateful features, replace the temporary `memory` session driver with Cloudflare KV and add the `SESSION` namespace to `wrangler.jsonc`.
 
 ### package.json
 - **Astro Doc References:** Installation & CLI sections (llms-full.txt §§ “Install Astro”, “CLI installation flags”, “Start the Astro dev server”), integration guidance for Tailwind, React, MDX.

@@ -1,4 +1,4 @@
 ---
 title: Poetry
-description: Jane's poems
+description: Transmission poems and light-language fragments from Christina’s practice.
 ---

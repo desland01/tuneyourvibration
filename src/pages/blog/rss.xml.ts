@@ -17,11 +17,13 @@ export async function GET(context: APIContext) {
 
   const sorted = sortByDateDesc(posts);
 
+  const siteUrl = context.site ?? import.meta.env.PUBLIC_SITE_URL ?? "https://tuneyourvibration.com";
+
   return rss({
     title: "Tune Your Vibration — Blog",
     description:
       "Sound healing, distance Reiki, and empath support notes from Christina.",
-    site: context.site ?? "https://example.com",
+    site: siteUrl,
     items: sorted.map((post) => ({
       title: post.data.title,
       description: post.data.description ?? "",

@@ -8,6 +8,9 @@ export const getTaxa = async (collection: CollectionKey, name: string) => {
   let taxonomies: string[] = [];
   for (let i = 0; i < taxonomyPages.length; i++) {
     const categoryArray = taxonomyPages[i];
+    if (!Array.isArray(categoryArray)) {
+      continue;
+    }
     for (let j = 0; j < categoryArray.length; j++) {
       taxonomies.push(slugify(categoryArray[j]));
     }
@@ -23,6 +26,9 @@ export const getTaxaMultiset = async (collection: CollectionKey, name: string) =
   let taxonomies: string[] = [];
   for (let i = 0; i < taxonomyPages.length; i++) {
     const categoryArray = taxonomyPages[i];
+    if (!Array.isArray(categoryArray)) {
+      continue;
+    }
     for (let j = 0; j < categoryArray.length; j++) {
       taxonomies.push(slugify(categoryArray[j]));
     }

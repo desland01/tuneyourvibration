@@ -1,6 +1,6 @@
 ---
 import type { BlogEntry } from "@/types";
-import { upperHumanize, plainify, slugify } from "@/lib/textConverter";
+import { upperHumanize, plainify, slugify, lowerHumanize } from "@/lib/textConverter";
 import {
   FaRegFolder,
   FaRegClock,
@@ -15,6 +15,7 @@ interface Props {
 }
 
 const { entry }: Props = Astro.props;
+
 const {
   title,
   description,
@@ -35,7 +36,7 @@ const entryDescription =
 ---
 
 <div class="h-full m-2 pl-0 bg-gradient-to-br gradient rounded-lg">
-  <div class="glass h-full rounded-lg p-4 intersect:animate-fadeUp opacity-0">
+  <div class="glass h-full rounded-lg p-6">
     <h4 class="mb-2">
       <a href={`/blog/${entry.id}`}>
         {title}
@@ -45,7 +46,7 @@ const entryDescription =
       {
         categories && (
           <li class="mr-0 inline-block">
-            {categories.map((category: string, index: number) => (
+            {categories.map((category: string) => (
               <a href={`/blog/categories/${slugify(category)}`}>
                 <FaRegFolder className={"ml-2 -mt-1 inline-block"} />
                 {upperHumanize(category)}
@@ -54,18 +55,20 @@ const entryDescription =
           </li>
         )
       }
-      <!-- { tags && (
-        <li class="mr-0 inline-block">
-          {
-            tags.map((tag: string, index: number) => (
-              <a href={`/blog/tags/${slugify(tag)}`}>
-                <FaHashtag className={"ml-2 -mt-1 inline-block"} />
-                {lowerHumanize(tag)}
-              </a>
-            ))
-          }
-        </li>
-      )} -->
+      {
+        tags && tags.length > 0 && (
+          <li class="mr-0 inline-block">
+            {
+              tags.map((tag: string) => (
+                <a href={`/blog/tags/${slugify(tag)}`}>
+                  <FaHashtag className={"ml-2 -mt-1 inline-block"} />
+                  {lowerHumanize(tag)}
+                </a>
+              ))
+            }
+          </li>
+        )
+      }
       {
         entryDate && (
           <li class="mr-0 inline-block">

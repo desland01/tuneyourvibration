@@ -10,7 +10,7 @@ const dedupe = (items: any[], currentId: string) => {
   return ordered;
 };
 
-const similerItems = (currentItem: any, allItems: any[], id: string) => {
+const similarItems = (currentItem: any, allItems: any[], id: string) => {
   const categories: string[] = currentItem.data?.categories ?? [];
   const tags: string[] = currentItem.data?.tags ?? [];
 
@@ -46,4 +46,4 @@ const similerItems = (currentItem: any, allItems: any[], id: string) => {
   return recents.slice(0, 4);
 };
 
-export default similerItems;
+export default similarItems;

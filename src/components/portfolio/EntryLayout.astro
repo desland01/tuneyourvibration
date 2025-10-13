@@ -25,27 +25,30 @@ const { title, description, projects } = entry.data;
                 <div class="mt-8">
                   <h3 set:html={markdownify(project.title)} />
                 </div>
-                <div class="-mt-4 flex items-center">
-                  {project.github && (
-                    <a
-                      aria-label="Github"
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow"
-                      class="mr-2 glass shadow-none rounded flex h-8 w-8 text-txt-p dark:text-darkmode-txt-p items-center justify-center text-center"
-                    >
-                      <FaGithub className="h-6 w-6" />
-                    </a>
-                  )}
-                  {project.technologies?.map((element: string) => (
-                    <li class="list-none">
-                      {/* Use markdownify to convert markdown to HTML for each technology */}
-                      <div
-                        class="mr-2 px-2 h-8 flex glass shadow-none rounded text-txt-p dark:text-darkmode-txt-p items-center justify-center text-center"
-                        set:html={markdownify(element)}
-                      />
-                    </li>
-                  ))}
+                <div class="-mt-4">
+                  <ul class="flex flex-wrap items-center gap-2">
+                    {project.github && (
+                      <li class="list-none">
+                        <a
+                          aria-label="Github"
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          class="glass shadow-none rounded flex h-8 w-8 text-txt-p dark:text-darkmode-txt-p items-center justify-center text-center"
+                        >
+                          <FaGithub className="h-6 w-6" />
+                        </a>
+                      </li>
+                    )}
+                    {project.technologies?.map((element: string) => (
+                      <li class="list-none">
+                        <div
+                          class="px-2 h-8 flex glass shadow-none rounded text-txt-p dark:text-darkmode-txt-p items-center justify-center text-center"
+                          set:html={markdownify(element)}
+                        />
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
               <div>

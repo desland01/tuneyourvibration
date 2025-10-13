@@ -136,16 +136,19 @@ const metaImage = coverImage?.src ?? (typeof image === "string" ? image : image?
                 <div class="glass rounded-lg p-4 intersect:animate-fadeUp opacity-0">
                   <h2 set:html="Ingredients" class="mb-2" />
                   <div class="row justify-center">
-                    {ingredients.list.map((it: string, index: number) => (
-                      <div class="row my-1">
-                        <div class="col-7" set:html={ingredients.list[index]} />
-                        <div
-                          class="col-5 text-right"
-                          set:html={ingredients.qty[index]}
-                        />
-                        <hr class="my-1" />
-                      </div>
-                    ))}
+                    {ingredients.list.map((ingredient: string, index: number) => {
+                      const quantity = ingredients.qty?.[index] ?? "";
+                      return (
+                        <div class="row my-1">
+                          <div class="col-7" set:html={ingredient} />
+                          <div
+                            class="col-5 text-right"
+                            set:html={quantity}
+                          />
+                          <hr class="my-1" />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </section>
@@ -158,10 +161,10 @@ const metaImage = coverImage?.src ?? (typeof image === "string" ? image : image?
                 <div class="glass rounded-lg p-4 intersect:animate-fadeUp opacity-0">
                   <h2 set:html="Instructions" class="mb-2" />
                   <div class="row justify-center">
-                    {instructions.map((it: string, index: number) => (
+                    {instructions.map((instruction: string, index: number) => (
                       <div class="row my-1">
                         <div class="col">
-                          {index + 1}. {it}
+                          {index + 1}. {instruction}
                         </div>
                         <hr class="my-1" />
                       </div>
@@ -178,9 +181,9 @@ const metaImage = coverImage?.src ?? (typeof image === "string" ? image : image?
                 <div class="glass rounded-lg p-4 intersect:animate-fadeUp opacity-0">
                   <h2 set:html="Notes" class="mb-2" />
                   <div class="row justify-center">
-                    {notes.map((it: string, index: number) => (
+                    {notes.map((note: string) => (
                       <div class="row my-1">
-                        <div class="col">{it}</div>
+                        <div class="col">{note}</div>
                         <hr class="my-1" />
                       </div>
                     ))}

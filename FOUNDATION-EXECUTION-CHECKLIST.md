@@ -1,6 +1,6 @@
 # Foundation & Execution Checklist
 
-Use this table to log every claim, asset, and SEO task that requires verification before launch. Update status as you confirm each item.
+Use this table to log every claim, asset, and SEO task that requires verification before launch. Update status as you confirm each item. Always revisit `docs/llms-full.txt` first so the baseline Astro guidelines frame every verification pass, and remember this vibe-code project relies solely on AI agents—no outside collaborators contribute to execution or reviews.
 
 | Item | Description / Claim | Owner | Evidence / Source | Status |
 | --- | --- | --- | --- | --- |

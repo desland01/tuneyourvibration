@@ -1,28 +1,30 @@
 ---
 title: Portfolio
-description: Jane Doe's projects and programs.
+description: Christina’s signature experiences and collaborative healing work.
 
 projects:
-  - title: "Conway's Game of Life"
+  - title: "Tune Your Vibration Platform"
     technologies:
-      - "HTML Canvas"
-      - "JavaScript"
-    github: "https://github.com/"
+      - "Astro"
+      - "Cloudflare Workers"
+      - "Pagefind Search"
     content:
-      - "[Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) is a cellular automaton designed by the late [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway#). It's a \"0-player game\" played out on a discretely mutating matrix of square, binary cells. The state of the each cell in the grid from one 'generation' (grid state) to the next is determined by the states of its 'neighbors' (immediately adjacent cells). For example, if a cell is 'alive' in the curent generation, and has more than 3 living neighbors, it will be dead in the next generation, as if by overpopulation."
-  - title: "Weather Dashboard"
+      - "Designed and launched a high-conversion digital home for Tune Your Vibration with a performance-focused Astro build, Cloudflare edge delivery, and frictionless search powered by Pagefind."
+      - "Authored the glassmorphism design system, reusable service layouts, and SEO schema patterns that now power every ceremony page."
+  - title: "Kathmandu Sanctuary Retreat Series"
     technologies:
-      - "React"
-      - "OpenWeather API"
-    github: "https://github.com/"
+      - "In-person facilitation"
+      - "Crystal bowl sound therapy"
+      - "Tree of Life grid work"
     content:
-      - "The Weather Dashboard is a web application that provides real-time weather updates for any location. It utilizes the [OpenWeather API](https://openweathermap.org/api) to fetch current weather data, including temperature, humidity, and wind speed. Built with [React](https://reactjs.org/), the application features a responsive design and allows users to search for cities and view detailed weather forecasts."
-  - title: "Clown Shoes"
+      - "Curated immersive three-day experiences in Kathmandu blending ceremonial sound, Reiki attunements, and integration circles for international facilitators."
+      - "Delivered end-to-end retreat assets—journey decks, WhatsApp integration plans, and booking flows—to keep participants supported pre and post-travel."
+  - title: "Virtual Cohort Mentorship"
     technologies:
-      - "Sewing Machine"
-      - "Fabric"
-      - "Thread"
-    content: 
-      - "The left shoe is a size 24. It is made of fabric, red. It is designed for use only by clowns. It is not suitable."
-      - "The right shoe is a size 29. It is made of fabric, blue. This shoe is purely theoretical. Members of polite society would not entertain the idea of utilizing this."
+      - "Zoom + spatial audio engineering"
+      - "Asynchronous Voxer support"
+      - "Notion curriculum hub"
+    content:
+      - "Built a 90-day virtual container combining live ceremonies, nervous-system regulation labs, and evergreen resource libraries for distributed students."
+      - "Implemented measurement rituals and reflection prompts that keep cohort members anchored between sessions."
 ---

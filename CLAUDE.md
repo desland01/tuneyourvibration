@@ -2,6 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+- Mandatory pre-flight: read `docs/llms-full.txt` at the start of each session so the latest Astro developer guidance is in context before modifying plans or code.
+- Remember: this is a vibe-code project with no human co-authors—every change is planned, written, and reviewed by AI agents alone.
+
 ## Development Commands
 
 ### Essential Commands

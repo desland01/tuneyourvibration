@@ -14,7 +14,7 @@ import icon from "astro-icon";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
-const site = process.env.PUBLIC_SITE_URL ?? "https://example.com";
+const site = process.env.PUBLIC_SITE_URL ?? "https://tuneyourvibration.com";
 
 export default defineConfig({
   site,

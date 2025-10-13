@@ -32,6 +32,8 @@
 - When editing search or RSS behaviour, confirm `npm run postbuild` succeeds and the generated Pagefind index works locally.
 
 ## Agent Workflow & Collaboration
+- Before opening a plan or writing code, read `docs/llms-full.txt` in full to refresh the latest Astro framework standards.
+- This is a vibe-code project: there are no other collaborators, and every line must be prompted through and implemented by AI agents only.
 - Maintain the vibe-coding loop: humans craft prompts, Codex implements, Claude Code provides specs. Capture each prompt/response chain in PR notes and cite any Claude-driven architecture changes.
 - Activate the SEO domination roadmap in `docs/seo/codex-vibe-seo-plan.json` before starting a session; follow the agent prompts + phase tasks defined there.
 - Track progress using the plan's checklist—mirror completions in `docs/research/README.md`, `docs/seo/experiments.md`, and related logs so the loop stays audit-ready.

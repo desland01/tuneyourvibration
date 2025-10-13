@@ -2,6 +2,10 @@
 
 Run this pass before handoff or deployment.
 
+## Pre-flight
+- [ ] Re-read `docs/llms-full.txt` so the Astro playbook is loaded before executing this checklist.
+- [ ] Confirm the vibe-code protocol: no external collaborators—AI agents handle prompting, implementation, and review for every change.
+
 ## Local & Build
 - [x] `npm install` (Node 22) completes without errors. (Ran 2025-10-11.)
 - [x] `npm run dev` loads homepage, docs, blog, recipes, poetry, and portfolio routes without console errors. (Port 4328 spot check.)

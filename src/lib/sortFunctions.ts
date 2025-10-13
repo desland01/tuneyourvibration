@@ -2,10 +2,12 @@ import type { GenericEntry } from "@/types";
 
 // Sort by date
 export const sortByDate = (entries: GenericEntry[]): GenericEntry[] => {
+  const getTime = (entry: any) => {
+    const value = entry?.data?.date;
+    return value ? new Date(value).getTime() || 0 : 0;
+  };
   const sortedEntries = entries.sort(
-    (a: any, b: any) =>
-      new Date(b.data.date && b.data.date).valueOf() -
-      new Date(a.data.date && a.data.date).valueOf(),
+    (a: any, b: any) => getTime(b) - getTime(a),
   );
   return sortedEntries;
 };

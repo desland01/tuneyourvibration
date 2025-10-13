@@ -22,10 +22,12 @@ export async function GET(context: APIContext) {
 
   const sorted = sortDocs(docs);
 
+  const siteUrl = context.site ?? import.meta.env.PUBLIC_SITE_URL ?? "https://tuneyourvibration.com";
+
   return rss({
     title: "Tune Your Vibration — Docs",
     description: "Reference guides and ceremonial resources authored by Christina.",
-    site: context.site ?? "https://example.com",
+    site: siteUrl,
     items: sorted.map((doc) => ({
       title: doc.data.title,
       description: doc.data.description ?? "",

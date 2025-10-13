@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@components/base/BaseLayout.astro";
-import { upperHumanize } from "@/lib/textConverter";
+import { upperHumanize, slugify } from "@/lib/textConverter";
 import PageHeader from "@components/common/PageHeader.astro";
 import Button from "@components/common/Button.astro";
 
@@ -25,7 +25,7 @@ const { taxonomy, taxa, allTaxa }: Props = Astro.props;
               <li class="m-3 inline-block">
                 <Button
                   label=`${upperHumanize(taxon)} (${count})`
-                  link={`/blog/${taxonomy}/${taxon}`}
+                  link={`/blog/${taxonomy}/${slugify(taxon)}`}
                   hoverInvert
                 />
               </li>

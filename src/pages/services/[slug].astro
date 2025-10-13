@@ -1,0 +1,21 @@
+---
+import EntryLayout from "@components/services/EntryLayout.astro";
+import type { ServicesEntry } from "@/types";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const services = (await getCollection(
+    "services",
+    ({ data }) => !data.draft,
+  )) as ServicesEntry[];
+
+  return services.map((service) => ({
+    params: { slug: service.data.slug },
+    props: { entry: service },
+  }));
+}
+
+const { entry } = Astro.props as { entry: ServicesEntry };
+---
+
+<EntryLayout entry={entry} />

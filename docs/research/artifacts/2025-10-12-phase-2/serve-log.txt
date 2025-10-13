@@ -1,0 +1,147 @@
+ INFO  Accepting connections at http://127.0.0.1:4328
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 14 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /fonts/inter/Inter-Regular.woff2
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /fonts/inter/Inter-Bold.woff2
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /fonts/cormorant/cormorant-700.woff2
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /_astro/ClientRouter.astro_astro_type_script_index_0_lang.CJJOOyb_.js
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /_astro/page.DM3Rzxjm.js
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 9 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 5 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 8 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 8 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 5 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /_astro/christina-selfie-bliss.DErOZOSZ_Z1rAFXE.webp
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 6 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /_astro/index.CXoiQsxQ.js
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 GET /favicon/favicon-32x32.png
+ HTTP  10/12/2025 10:06:35 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /fonts/cormorant/cormorant-500.woff2
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 304 in 1 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /robots.txt
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/in-person-sound-healing.DgDfzafR_1KMDMn.webp
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/virtual-healing-session.B0p26v0m_qxA8g.webp
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/energy-cleanse.5w2wKB_q_ebeGB.webp
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/heal-through-dance.BPtcw4pV_Z1UHfyM.webp
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/tune-your-vibration.BQ29tJqV_PHkWN.webp
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 GET /_astro/grateful.4C7V40Tw_fqFy5.webp
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 3 ms
+ HTTP  10/12/2025 10:06:38 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /fonts/inter/Inter-Regular.woff2
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /fonts/inter/Inter-Bold.woff2
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /fonts/cormorant/cormorant-700.woff2
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/ClientRouter.astro_astro_type_script_index_0_lang.CJJOOyb_.js
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/page.DM3Rzxjm.js
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/christina-selfie-bliss.DErOZOSZ_Z1rAFXE.webp
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/index.CXoiQsxQ.js
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /images/nepal-day.webp
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /images/nepal-night.webp
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/in-person-sound-healing.DgDfzafR_1KMDMn.webp
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/virtual-healing-session.B0p26v0m_qxA8g.webp
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /_astro/energy-cleanse.5w2wKB_q_ebeGB.webp
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 GET /favicon/favicon-32x32.png
+ HTTP  10/12/2025 10:06:46 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:49 PM 127.0.0.1 GET /fonts/cormorant/cormorant-500.woff2
+ HTTP  10/12/2025 10:06:49 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:49 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:06:49 PM 127.0.0.1 Returned 304 in 1 ms
+ HTTP  10/12/2025 10:06:49 PM 127.0.0.1 GET /robots.txt
+ HTTP  10/12/2025 10:06:49 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:50 PM 127.0.0.1 GET /_astro/heal-through-dance.BPtcw4pV_Z1UHfyM.webp
+ HTTP  10/12/2025 10:06:50 PM 127.0.0.1 GET /_astro/tune-your-vibration.BQ29tJqV_PHkWN.webp
+ HTTP  10/12/2025 10:06:50 PM 127.0.0.1 GET /_astro/grateful.4C7V40Tw_fqFy5.webp
+ HTTP  10/12/2025 10:06:50 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:50 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:50 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /sound-healing-nepal/learn
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 2 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /fonts/inter/Inter-Regular.woff2
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /fonts/inter/Inter-Bold.woff2
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /fonts/cormorant/cormorant-700.woff2
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /_astro/ClientRouter.astro_astro_type_script_index_0_lang.CJJOOyb_.js
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /_astro/page.DM3Rzxjm.js
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /_astro/index.CXoiQsxQ.js
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /_astro/in-person-sound-healing.DgDfzafR_cc0UX.webp
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 GET /favicon/favicon-32x32.png
+ HTTP  10/12/2025 10:06:58 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:00 PM 127.0.0.1 GET /fonts/cormorant/cormorant-500.woff2
+ HTTP  10/12/2025 10:07:00 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:00 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:07:00 PM 127.0.0.1 Returned 304 in 1 ms
+ HTTP  10/12/2025 10:07:01 PM 127.0.0.1 GET /robots.txt
+ HTTP  10/12/2025 10:07:01 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:01 PM 127.0.0.1 GET /_astro/virtual-healing-session.B0p26v0m_qxA8g.webp
+ HTTP  10/12/2025 10:07:01 PM 127.0.0.1 GET /_astro/energy-cleanse.5w2wKB_q_ebeGB.webp
+ HTTP  10/12/2025 10:07:01 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:01 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /sound-healing-nepal/learn
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /fonts/inter/Inter-Regular.woff2
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /fonts/inter/Inter-Bold.woff2
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /fonts/cormorant/cormorant-700.woff2
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /_astro/ClientRouter.astro_astro_type_script_index_0_lang.CJJOOyb_.js
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /_astro/page.DM3Rzxjm.js
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /_astro/index.CXoiQsxQ.js
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /images/nepal-day.webp
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /images/nepal-night.webp
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /_astro/in-person-sound-healing.DgDfzafR_cc0UX.webp
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 GET /favicon/favicon-32x32.png
+ HTTP  10/12/2025 10:07:09 PM 127.0.0.1 Returned 200 in 0 ms
+ HTTP  10/12/2025 10:07:11 PM 127.0.0.1 GET /fonts/cormorant/cormorant-500.woff2
+ HTTP  10/12/2025 10:07:11 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 GET /_astro/about.jmNaLm_h.css
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 Returned 304 in 0 ms
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 GET /robots.txt
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 GET /_astro/virtual-healing-session.B0p26v0m_qxA8g.webp
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 GET /_astro/energy-cleanse.5w2wKB_q_ebeGB.webp
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 Returned 200 in 1 ms
+ HTTP  10/12/2025 10:07:12 PM 127.0.0.1 Returned 200 in 1 ms
+
+ INFO  Gracefully shutting down. Please wait...

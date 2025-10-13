@@ -1,0 +1,81 @@
+
+> christina-s-website@0.0.1 check
+> astro check
+
+22:59:47 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+22:59:47 [@astrojs/cloudflare] If you see the error "Invalid binding `SESSION`" in your build output, you need to add the binding to your wrangler config file.
+22:59:47 [WARN] [adapter] Cloudflare does not support sharp at runtime. However, you can configure `imageService: "compile"` to optimize images with sharp on prerendered pages during build time.
+22:59:48 [vite] Re-optimizing dependencies because vite config has changed
+22:59:48 [content] Syncing content
+22:59:48 [content] Astro config changed
+22:59:48 [content] Clearing content store
+22:59:48 [content] Synced content
+22:59:48 [types] Generated 1.02s
+22:59:48 [check] Getting diagnostics for Astro files in /Users/thebeast/Christina's Website...
+[96mpostcss.config.js[0m:[93m1[0m:[93m1[0m - [93mwarning[0m[90m ts(80001): [0mFile is a CommonJS module; it may be converted to an ES module.
+
+[7m1[0m module.exports = {
+[7m [0m [93m~~~~~~~~~~~~~~[0m
+
+[96msrc/components/blog/Card.astro[0m:[93m48[0m:[93m48[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m48[0m             {categories.map((category: string, index: number) => (
+[7m  [0m [93m                                               ~~~~~[0m
+[96msrc/components/blog/Card.astro[0m:[93m24[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'tags' is declared but its value is never read.
+
+[7m24[0m   tags,
+[7m  [0m [93m  ~~~~[0m
+[96msrc/components/blog/Card.astro[0m:[93m7[0m:[93m3[0m - [93mwarning[0m[90m ts(6133): [0m'FaHashtag' is declared but its value is never read.
+
+[7m7[0m   FaHashtag,
+[7m [0m [93m  ~~~~~~~~~[0m
+
+[96msrc/components/common/EntryHeader.astro[0m:[93m149[0m:[93m39[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m149[0m               {tags.map((tag: string, index: number) => (
+[7m   [0m [93m                                      ~~~~~[0m
+[96msrc/components/common/EntryHeader.astro[0m:[93m139[0m:[93m50[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m139[0m               {categories.map((category: string, index: number) => (
+[7m   [0m [93m                                                 ~~~~~[0m
+
+[96msrc/components/home/EntryLayout.astro[0m:[93m44[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'virtualAnchor' is declared but its value is never read.
+
+[7m44[0m const virtualAnchor = services.find((service) => service.data.slug === "virtual-sound-healing");
+[7m  [0m [93m      ~~~~~~~~~~~~~[0m
+
+[96msrc/components/recipes/EntryLayout.astro[0m:[93m166[0m:[93m45[0m - [93mwarning[0m[90m ts(6133): [0m'index' is declared but its value is never read.
+
+[7m166[0m                     {notes.map((it: string, index: number) => (
+[7m   [0m [93m                                            ~~~~~[0m
+[96msrc/components/recipes/EntryLayout.astro[0m:[93m124[0m:[93m44[0m - [93mwarning[0m[90m ts(6133): [0m'it' is declared but its value is never read.
+
+[7m124[0m                     {ingredients.list.map((it: string, index: number) => (
+[7m   [0m [93m                                           ~~[0m
+
+[96msrc/components/services/EntryLayout.astro[0m:[93m83[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'serviceLd' is declared but its value is never read.
+
+[7m83[0m const serviceLd = {
+[7m  [0m [93m      ~~~~~~~~~[0m
+[96msrc/components/services/EntryLayout.astro[0m:[93m359[0m:[93m13[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m359[0m     <script type="application/ld+json">
+[7m   [0m [93m            ~~~~[0m
+[96msrc/components/services/EntryLayout.astro[0m:[93m355[0m:[93m11[0m - [93mwarning[0m[90m astro(4000): [0mThis script will be treated as if it has the `is:inline` directive because it contains an attribute. Therefore, features that require processing (e.g. using TypeScript or npm packages in the script) are unavailable.
+
+See docs for more details: https://docs.astro.build/en/guides/client-side-scripts/#script-processing.
+
+Add the `is:inline` directive explicitly to silence this hint.
+
+[7m355[0m   <script type="application/ld+json">
+[7m   [0m [93m          ~~~~[0m
+
+Result (100 files): 
+- 0 errors
+- 0 warnings
+- 12 hints
+

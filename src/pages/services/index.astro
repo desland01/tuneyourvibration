@@ -1,0 +1,64 @@
+---
+import CollectionLayout from "@components/services/CollectionLayout.astro";
+import type { ServicesEntry } from "@/types";
+import { getCollection } from "astro:content";
+
+const services = (await getCollection("services", ({ data }) => !data.draft)) as ServicesEntry[];
+
+const sortedServices = services.sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
+);
+
+const groupMeta: Record<
+  ServicesEntry["data"]["delivery"],
+  { heading: string; description: string }
+> = {
+  "in-person-kathmandu": {
+    heading: "Kathmandu Sanctuary Sessions",
+    description:
+      "Experience Christina's signature in-person ceremonies inside a candlelit Kathmandu studio. Each session blends sacred sound, Tree of Life grid work, and intuitive channeling.",
+  },
+  virtual: {
+    heading: "Virtual Ceremonies Worldwide",
+    description:
+      "Receive Christina's frequency work from anywhere. Crystal bowls, light language, and distance reiki stream directly to your space with integration support.",
+  },
+  group: {
+    heading: "Group Sound Healing & Yoga Fusion",
+    description:
+      "Craft a bespoke sound bath for retreats, corporate teams, celebrations, or community circles. Available virtually or on-location by request.",
+  },
+};
+
+const orderedDeliveries: ServicesEntry["data"]["delivery"][] = [
+  "in-person-kathmandu",
+  "virtual",
+  "group",
+];
+
+const groups = orderedDeliveries
+  .map((delivery) => {
+    const entries = sortedServices.filter(
+      (entry) => entry.data.delivery === delivery,
+    );
+    if (entries.length === 0) return null;
+    return {
+      id: delivery,
+      heading: groupMeta[delivery].heading,
+      description: groupMeta[delivery].description,
+      entries,
+    };
+  })
+  .filter(Boolean) as {
+    id: string;
+    heading: string;
+    description: string;
+    entries: ServicesEntry[];
+  }[];
+---
+
+<CollectionLayout
+  title="Christina's Sound Healing & Energy Services"
+  description="Choose the ceremony that matches the pace of your next evolution. These offerings are crafted for sensitive, heart-led humans ready for deeper alignment, whether you join Christina in Kathmandu or meet her online."
+  groups={groups}
+/>

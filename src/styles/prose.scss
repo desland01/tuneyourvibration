@@ -1,0 +1,135 @@
+@reference "./main.scss";
+
+// Markdown Content
+.content {
+  @apply max-w-none;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  line-height: 1.75;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+    margin-top: 0.6em;
+    margin-bottom: 0.3em;
+    line-height: 1.2;
+  }
+
+  p {
+    margin-bottom: 1.15em;
+  }
+
+  a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--color-text-light);
+    transition: color 150ms ease;
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+
+  strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  em {
+    color: var(--color-text-light);
+  }
+
+  blockquote {
+    background-color: var(--color-bg-secondary);
+    border-left: 8px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1.5em 0;
+    padding: 1.5em;
+  }
+
+  ul,
+  ol {
+    margin: 1.1em 0 1.2em 1.25em;
+    display: grid;
+    row-gap: 0.4em;
+  }
+
+  li {
+    color: var(--color-text-secondary);
+
+    &::marker {
+      color: var(--color-text-light);
+    }
+
+    p {
+      margin: 0; // nested paragraphs inside mdx list items
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 1.5em 0;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75em 1em;
+    text-align: left;
+    color: var(--color-text-secondary);
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  thead th {
+    color: var(--color-text-primary);
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  code {
+    background-color: var(--color-bg-translucent);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    padding: 0 0.35em;
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+  }
+
+  pre {
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    margin: 1.5em 0;
+    padding: 1.2em;
+    overflow-x: auto;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 2.5em 0;
+  }
+
+  img,
+  picture,
+  video {
+    border-radius: var(--radius-lg);
+    margin: 2em auto;
+  }
+}

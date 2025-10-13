@@ -1,0 +1,261 @@
+
+> christina-s-website@0.0.1 build
+> astro build --verbose
+
+21:38:54 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+21:38:54 [@astrojs/cloudflare] If you see the error "Invalid binding `SESSION`" in your build output, you need to add the binding to your wrangler config file.
+21:38:54 [WARN] [adapter] Cloudflare does not support sharp at runtime. However, you can configure `imageService: "compile"` to optimize images with sharp on prerendered pages during build time.
+21:38:55 [content] Syncing content
+21:38:55 [content] Synced content
+21:38:55 [types] Generated 353ms
+21:38:55 [build] output: "static"
+21:38:55 [build] mode: "server"
+21:38:55 [build] directory: /Users/thebeast/Christina's Website/dist/
+21:38:55 [build] adapter: @astrojs/cloudflare
+21:38:55 [build] Collecting build info...
+21:38:55 [build] ✓ Completed in 379ms.
+21:38:55 [build] Building server entrypoints...
+21:38:58 [vite] ✓ built in 2.71s
+21:38:58 [build] ✓ Completed in 2.73s.
+
+ building client (vite) 
+21:38:58 [vite] transforming...
+21:38:58 [vite] ✓ 109 modules transformed.
+21:38:58 [vite] rendering chunks...
+21:38:58 [vite] computing gzip size...
+21:38:58 [vite] dist/_astro/LiteYouTubeEmbed.DpFGkd_G.css                                    1.41 kB │ gzip:  0.71 kB
+21:38:58 [vite] dist/_astro/page.DM3Rzxjm.js                                                 0.04 kB │ gzip:  0.06 kB
+21:38:58 [vite] dist/_astro/jsx-runtime.ClP7wGfN.js                                          1.00 kB │ gzip:  0.62 kB
+21:38:58 [vite] dist/_astro/Accordion.-5Rh_F8N.js                                            1.10 kB │ gzip:  0.64 kB
+21:38:58 [vite] dist/_astro/Tabs.ta3vGwq8.js                                                 1.38 kB │ gzip:  0.75 kB
+21:38:58 [vite] dist/_astro/index.CXoiQsxQ.js                                                2.21 kB │ gzip:  0.99 kB
+21:38:58 [vite] dist/_astro/Youtube.-iSzIwfj.js                                              3.57 kB │ gzip:  1.75 kB
+21:38:58 [vite] dist/_astro/index.DK-fsZOb.js                                                6.81 kB │ gzip:  2.73 kB
+21:38:58 [vite] dist/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CJJOOyb_.js   12.94 kB │ gzip:  4.46 kB
+21:38:58 [vite] dist/_astro/Search.D6bxfJqZ.js                                              18.43 kB │ gzip:  6.51 kB
+21:38:58 [vite] dist/_astro/Tooltips.astro_astro_type_script_index_0_lang.Bx2cGmPu.js       36.43 kB │ gzip: 12.89 kB
+21:38:58 [vite] dist/_astro/marked.esm.BhM9K_2c.js                                          39.96 kB │ gzip: 12.53 kB
+21:38:58 [vite] dist/_astro/client.Bz692-Ao.js                                             136.51 kB │ gzip: 44.01 kB
+21:38:58 [vite] ✓ built in 485ms
+
+ prerendering static routes 
+21:38:58 ▶ src/pages/404.astro
+21:38:58   └─ /404.html (+21ms) 
+21:38:58 ▶ src/pages/about.astro
+21:38:58   └─ /about/index.html (+16ms) 
+21:38:58 ▶ src/pages/authors/[entry].astro
+21:38:58   ├─ /authors/bodhi-kiran/index.html (+7ms) 
+21:38:58   ├─ /authors/christina/index.html (+10ms) 
+21:38:58   └─ /authors/luna-sapta/index.html (+2ms) 
+21:38:58 ▶ src/pages/authors/index.astro
+21:38:58   └─ /authors/index.html (+4ms) 
+21:38:58 ▶ src/pages/blog/categories/[category].astro
+21:38:58   ├─ /blog/categories/reiki/index.html (+6ms) 
+21:38:58   └─ /blog/categories/sound-healing/index.html (+5ms) 
+21:38:58 ▶ src/pages/blog/categories/index.astro
+21:38:58   └─ /blog/categories/index.html (+4ms) 
+21:38:58 ▶ src/pages/blog/page/[slug].astro
+21:38:58   ├─ /blog/page/2/index.html (+11ms) 
+21:38:58   └─ /blog/page/3/index.html (+11ms) 
+21:38:58 λ src/pages/blog/rss.xml.ts
+21:38:58   └─ /blog/rss.xml (+6ms) 
+21:38:58 ▶ src/pages/blog/tags/[tag].astro
+21:38:58   ├─ /blog/tags/anxiety/index.html (+3ms) 
+21:38:58   ├─ /blog/tags/bedtime-ritual/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/burnout/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/chakra-balancing/index.html (+4ms) 
+21:38:58   ├─ /blog/tags/crystal-bowls/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/distance-energy-healing/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/distance-reiki/index.html (+3ms) 
+21:38:58   ├─ /blog/tags/distance-reiki-healer/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/empaths/index.html (+3ms) 
+21:38:58   ├─ /blog/tags/energy-hygiene/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/founders/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/leadership/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/nervous-system/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/nervous-system-care/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/nervous-system-regulation/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/remote-chakra-balancing/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/remote-healing/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/sleep/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/sound-therapy/index.html (+2ms) 
+21:38:58   ├─ /blog/tags/virtual-energy-healing/index.html (+3ms) 
+21:38:58   ├─ /blog/tags/virtual-energy-healing-practitioner/index.html (+2ms) 
+21:38:58   └─ /blog/tags/virtual-energy-healing-ritual/index.html (+2ms) 
+21:38:58 ▶ src/pages/blog/tags/index.astro
+21:38:58   └─ /blog/tags/index.html (+4ms) 
+21:38:58 ▶ src/pages/blog/[entry].astro
+21:38:58   ├─ /blog/choose-distance-reiki-healer/index.html (+3ms) 
+21:38:58   ├─ /blog/distance-reiki-vs-remote-chakra-balancing/index.html (+4ms) 
+21:38:58   ├─ /blog/prepare-for-virtual-energy-healing/index.html (+3ms) 
+21:38:58   ├─ /blog/signs-distance-energy-healing-is-working/index.html (+2ms) 
+21:38:58   ├─ /blog/weekly-remote-healing-ritual/index.html (+3ms) 
+21:38:58   ├─ /blog/distance-reiki-for-sleep/index.html (+4ms) 
+21:38:58   ├─ /blog/distance-reiki-for-anxiety/index.html (+2ms) 
+21:38:58   ├─ /blog/sound-healing-for-empaths/index.html (+2ms) 
+21:38:58   ├─ /blog/sound-healing-for-founders/index.html (+5ms) 
+21:38:58   └─ /blog/nervous-system-reset-sound-therapy/index.html (+3ms) 
+21:38:58 ▶ src/pages/blog/index.astro
+21:38:58   └─ /blog/index.html (+4ms) 
+21:38:58 λ src/pages/docs/rss.xml.ts
+21:38:58   └─ /docs/rss.xml (+2ms) 
+21:38:58 ▶ src/pages/docs/index.astro
+21:38:58   └─ /docs/index.html (+4ms) 
+21:38:58 ▶ src/pages/docs/[...id].astro
+21:38:58   ├─ /docs/characters/backgrounds/index.html (+3ms) 
+21:38:58   ├─ /docs/characters/index.html (+3ms) 
+21:38:58   ├─ /docs/characters/classes/index.html (+3ms) 
+21:38:58   ├─ /docs/the-arcane/deities/index.html (+4ms) 
+21:38:58   ├─ /docs/tutorials/elements/index.html (+12ms) 
+21:38:58   ├─ /docs/the-arcane/mage-schools/index.html (+3ms) 
+21:38:58   ├─ /docs/characters/races/index.html (+3ms) 
+21:38:58   ├─ /docs/the-arcane/index.html (+3ms) 
+21:38:58   ├─ /docs/the-arcane/forbidden-arts/index.html (+3ms) 
+21:38:58   └─ /docs/tutorials/index.html (+4ms) 
+21:38:58 ▶ src/pages/index-cards.astro
+21:38:58   └─ /index-cards/index.html (+4ms) 
+21:38:58 ▶ src/pages/poetry/[entry].astro
+21:38:58   ├─ /poetry/phantom-of-this-frozen-place/index.html (+2ms) 
+21:38:58   ├─ /poetry/freedoms-cost/index.html (+2ms) 
+21:38:58   ├─ /poetry/whispering-wind/index.html (+2ms) 
+21:38:58   ├─ /poetry/upon-the-hill/index.html (+2ms) 
+21:38:58   ├─ /poetry/quiet-skys-embrace/index.html (+2ms) 
+21:38:58   └─ /poetry/where-giants-wade/index.html (+2ms) 
+21:38:58 ▶ src/pages/poetry/index.astro
+21:38:58   └─ /poetry/index.html (+1ms) 
+21:38:58 ▶ src/pages/portfolio.astro
+21:38:58   └─ /portfolio/index.html (+2ms) 
+21:38:58 ▶ src/pages/recipes/page/[slug].astro
+21:38:58   └─ /recipes/page/2/index.html (+4ms) 
+21:38:58 ▶ src/pages/recipes/[entry].astro
+21:38:58   ├─ /recipes/banana-bread/index.html (+4ms) 
+21:38:58   ├─ /recipes/margherita-pizza/index.html (+2ms) 
+21:38:58   ├─ /recipes/mushroom-risotto/index.html (+2ms) 
+21:38:58   ├─ /recipes/herb-chicken/index.html (+2ms) 
+21:38:58   ├─ /recipes/spaghetti-carbonara/index.html (+2ms) 
+21:38:58   ├─ /recipes/sweet-potato-chili/index.html (+2ms) 
+21:38:58   └─ /recipes/veggie-stir-fry/index.html (+2ms) 
+21:38:58 ▶ src/pages/recipes/index.astro
+21:38:58   └─ /recipes/index.html (+2ms) 
+21:38:58 ▶ src/pages/search.astro
+21:38:58   └─ /search/index.html (+18ms) 
+21:38:58 ▶ src/pages/services/[slug].astro
+21:38:58   ├─ /services/the-awakening/index.html (+4ms) 
+21:38:58   ├─ /services/the-magic/index.html (+2ms) 
+21:38:58   ├─ /services/reiki-kathmandu/index.html (+2ms) 
+21:38:58   ├─ /services/virtual-aura-cleansing/index.html (+2ms) 
+21:38:58   ├─ /services/the-rejuvenation/index.html (+2ms) 
+21:38:58   ├─ /services/channeled-reading-with-tarot-30/index.html (+2ms) 
+21:38:58   ├─ /services/group-sound-healing/index.html (+2ms) 
+21:38:58   ├─ /services/channeled-reading-with-tarot/index.html (+1ms) 
+21:38:58   ├─ /services/virtual-reiki-reading/index.html (+1ms) 
+21:38:58   ├─ /services/awaken-your-gifts/index.html (+1ms) 
+21:38:58   └─ /services/virtual-sound-healing/index.html (+2ms) 
+21:38:58 ▶ src/pages/services/index.astro
+21:38:58   └─ /services/index.html (+6ms) 
+21:38:59 ▶ src/pages/sound-healing-nepal/learn.astro
+21:38:59   └─ /sound-healing-nepal/learn/index.html (+3ms) 
+21:38:59 ▶ src/pages/terms.astro
+21:38:59   └─ /terms/index.html (+1ms) 
+21:38:59 ▶ src/pages/virtual-sound-healing.astro
+21:38:59   └─ /virtual-sound-healing/index.html (+2ms) 
+21:38:59 ▶ src/pages/index.astro
+21:38:59   └─ /index.html (+3ms) 
+21:38:59 ✓ Completed in 464ms.
+
+ generating optimized images 
+21:38:59   ▶ /_astro/bwca-dusk.DVQBs9SN_Zvr7Xj.webp (reused cache entry) (+1ms) (1/60)
+21:38:59   ▶ /_astro/christina-selfie-bliss.DErOZOSZ_Z1rAFXE.webp (reused cache entry) (+2ms) (2/60)
+21:38:59   ▶ /_astro/cover.Dvs6EHT8_2fmLhu.webp (reused cache entry) (+2ms) (3/60)
+21:38:59   ▶ /_astro/cover.CQEQSbDh_7uOus.webp (reused cache entry) (+2ms) (4/60)
+21:38:59   ▶ /_astro/cover.CN03xSwc_1xUAOt.webp (reused cache entry) (+3ms) (5/60)
+21:38:59   ▶ /_astro/cover.Bmi8tLYX_Z1jylwB.webp (reused cache entry) (+3ms) (6/60)
+21:38:59   ▶ /_astro/cover.COGcUZUC_Z1S3tfj.webp (reused cache entry) (+3ms) (7/60)
+21:38:59   ▶ /_astro/cover.DavyA5fU_5w0j7.webp (reused cache entry) (+4ms) (8/60)
+21:38:59   ▶ /_astro/cover.wEGHxwez_2axnl2.webp (reused cache entry) (+4ms) (9/60)
+21:38:59   ▶ /_astro/christina-selfie-bliss.DErOZOSZ_1GqoNQ.webp (reused cache entry) (+2ms) (10/60)
+21:38:59   ▶ /_astro/bwca-dusk.DVQBs9SN_Z2fqfEB.webp (reused cache entry) (+3ms) (11/60)
+21:38:59   ▶ /_astro/cover.BBG0lHYP_1tAvo.webp (reused cache entry) (+4ms) (12/60)
+21:38:59   ▶ /_astro/phantom-of-this-frozen-place.fp4-VZTO_1Ps80M.webp (reused cache entry) (+3ms) (13/60)
+21:38:59   ▶ /_astro/cover.CQEQSbDh_Z1cxemt.webp (reused cache entry) (+4ms) (14/60)
+21:38:59   ▶ /_astro/veggie-stir-fry.GpmGkK32_1LRRdC.webp (reused cache entry) (+3ms) (15/60)
+21:38:59   ▶ /_astro/cover.Bmi8tLYX_tHkk.webp (reused cache entry) (+3ms) (16/60)
+21:38:59   ▶ /_astro/christina-selfie-bliss.DErOZOSZ_ZkkKS0.webp (reused cache entry) (+2ms) (17/60)
+21:38:59   ▶ /_astro/cover.COGcUZUC_Zy0pnn.webp (reused cache entry) (+3ms) (18/60)
+21:38:59   ▶ /_astro/bwca-dusk.DVQBs9SN_i7sEk.webp (reused cache entry) (+2ms) (19/60)
+21:38:59   ▶ /_astro/cover.wEGHxwez_Z1zAGAX.webp (reused cache entry) (+3ms) (20/60)
+21:38:59   ▶ /_astro/cover.BBG0lHYP_Z1iyslx.webp (reused cache entry) (+3ms) (21/60)
+21:38:59   ▶ /_astro/cover.DavyA5fU_Z1ew3xO.webp (reused cache entry) (+3ms) (22/60)
+21:38:59   ▶ /_astro/banana-bread.SzcNM6xA_1YVa2K.webp (reused cache entry) (+6ms) (23/60)
+21:38:59   ▶ /_astro/margherita-pizza.DVa6P3Ut_196ykm.webp (reused cache entry) (+5ms) (24/60)
+21:38:59   ▶ /_astro/mushroom-risotto.CgwPfnoW_Zv7djA.webp (reused cache entry) (+6ms) (25/60)
+21:38:59   ▶ /_astro/veggie-stir-fry.GpmGkK32_Z23G5T7.webp (reused cache entry) (+6ms) (26/60)
+21:38:59   ▶ /_astro/herb-chicken.DW6eJYg4_19tggj.webp (reused cache entry) (+6ms) (27/60)
+21:38:59   ▶ /_astro/in-person-sound-healing.DgDfzafR_2jxXpC.webp (reused cache entry) (+5ms) (28/60)
+21:38:59   ▶ /_astro/sweet-potato-chili.pgCjtVqw_1pMCmI.webp (reused cache entry) (+6ms) (29/60)
+21:38:59   ▶ /_astro/tunning-forks-healing-tools.B6EfDdx1_Z2eeOTv.webp (reused cache entry) (+6ms) (30/60)
+21:38:59   ▶ /_astro/spaghetti-carbonara.DuqA96QU_Z1GzbaM.webp (reused cache entry) (+6ms) (31/60)
+21:38:59   ▶ /_astro/banana-bread.SzcNM6xA_Z15iXx5.webp (reused cache entry) (+3ms) (32/60)
+21:38:59   ▶ /_astro/mushroom-risotto.CgwPfnoW_Z2lSKLd.webp (reused cache entry) (+2ms) (33/60)
+21:38:59   ▶ /_astro/margherita-pizza.DVa6P3Ut_ZGEY7g.webp (reused cache entry) (+3ms) (34/60)
+21:38:59   ▶ /_astro/heal-through-dance.BPtcw4pV_Z2qfNK6.webp (reused cache entry) (+7ms) (35/60)
+21:38:59   ▶ /_astro/energy-cleanse.5w2wKB_q_2521nB.webp (reused cache entry) (+3ms) (36/60)
+21:38:59   ▶ /_astro/in-person-sound-healing.DgDfzafR_1KMDMn.webp (reused cache entry) (+2ms) (37/60)
+21:38:59   ▶ /_astro/sweet-potato-chili.pgCjtVqw_vh8kt.webp (reused cache entry) (+3ms) (38/60)
+21:38:59   ▶ /_astro/herb-chicken.DW6eJYg4_Z1UKRjw.webp (reused cache entry) (+3ms) (39/60)
+21:38:59   ▶ /_astro/tunning-forks-healing-tools.B6EfDdx1_1QnAR7.webp (reused cache entry) (+3ms) (40/60)
+21:38:59   ▶ /_astro/spaghetti-carbonara.DuqA96QU_1zPhQ8.webp (reused cache entry) (+3ms) (41/60)
+21:38:59   ▶ /_astro/vibration-reset.BGTjt8Si_2cHirp.webp (reused cache entry) (+2ms) (42/60)
+21:38:59   ▶ /_astro/energy-cleanse.5w2wKB_q_ebeGB.webp (reused cache entry) (+2ms) (43/60)
+21:38:59   ▶ /_astro/tarot-reading-90-min.BAT6IyMg_Z1rvhm3.webp (reused cache entry) (+3ms) (44/60)
+21:38:59   ▶ /_astro/heal-through-dance.BPtcw4pV_Z25sDdQ.webp (reused cache entry) (+3ms) (45/60)
+21:38:59   ▶ /_astro/tarot-reading-30-min.DCyGGHRt_U2y1x.webp (reused cache entry) (+3ms) (46/60)
+21:38:59   ▶ /_astro/in-person-sound-healing.DgDfzafR_1T4axK.webp (reused cache entry) (+2ms) (47/60)
+21:38:59   ▶ /_astro/vibration-reset.BGTjt8Si_Z1tkLaP.webp (reused cache entry) (+3ms) (48/60)
+21:38:59   ▶ /_astro/rieki-session.DhdF3_BQ_2brItV.webp (reused cache entry) (+5ms) (49/60)
+21:38:59   ▶ /_astro/friendship.C7AqQzNi_Z5uBWS.webp (reused cache entry) (+5ms) (50/60)
+21:38:59   ▶ /_astro/tune-your-vibration.BQ29tJqV_PHkWN.webp (reused cache entry) (+5ms) (51/60)
+21:38:59   ▶ /_astro/virtual-healing-session.B0p26v0m_ZaRQIf.webp (reused cache entry) (+5ms) (52/60)
+21:38:59   ▶ /_astro/grateful.4C7V40Tw_fqFy5.webp (reused cache entry) (+4ms) (53/60)
+21:38:59   ▶ /_astro/tarot-reading-90-min.BAT6IyMg_Z2lL0j8.webp (reused cache entry) (+5ms) (54/60)
+21:38:59   ▶ /_astro/heal-through-dance.BPtcw4pV_Z1UHfyM.webp (reused cache entry) (+5ms) (55/60)
+21:38:59   ▶ /_astro/tarot-reading-30-min.DCyGGHRt_qY6Q0.webp (reused cache entry) (+5ms) (56/60)
+21:38:59   ▶ /_astro/in-person-sound-healing.DgDfzafR_cc0UX.webp (reused cache entry) (+5ms) (57/60)
+21:38:59   ▶ /_astro/rieki-session.DhdF3_BQ_Z2u8hWD.webp (reused cache entry) (+2ms) (58/60)
+21:38:59   ▶ /_astro/friendship.C7AqQzNi_1Jiw1m.webp (reused cache entry) (+1ms) (59/60)
+21:38:59   ▶ /_astro/virtual-healing-session.B0p26v0m_qxA8g.webp (reused cache entry) (+1ms) (60/60)
+21:38:59 ✓ Completed in 23ms.
+
+21:38:59 [build] Rearranging server assets...
+21:38:59 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+21:38:59 [build] Server built in 4.17s
+21:38:59 [build] Complete!
+
+> christina-s-website@0.0.1 postbuild
+> pagefind --site dist
+
+
+Running Pagefind v1.3.0 (Extended)
+Running from: "/Users/thebeast/Christina\'s Website"
+Source:       "dist"
+Output:       "dist/pagefind"
+
+[Walking source directory]
+Found 91 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+
+[Reading languages]
+Discovered 1 language: en
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 91 pages
+  Indexed 3406 words
+  Indexed 0 filters
+  Indexed 0 sorts
+
+Finished in 0.181 seconds

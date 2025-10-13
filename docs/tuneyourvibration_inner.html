@@ -1,0 +1,706 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://dpt78m53p45fm.cloudfront.net/deep_thought/8a577fc9a3b1ab045e5021d58613aebf5d534d44/img/favicon.gif" type="image/gif">
+
+    <!-- core/apps/janus/templates/janus/partials/google-tag-manager-head.html -->
+
+
+    
+    <script src="https://js.stripe.com/v3/"></script>
+    
+
+    
+
+    <!-- core/apps/common/templates/common/partials/fonts.html -->
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<link rel='stylesheet' id='webfont-stylesheet-css' href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,300italic,400italic,700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='webfont-stylesheet-css' href='https://fonts.googleapis.com/css?family=Poppins:wght@300,400,500,600,700,900' type='text/css' media='all' />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- core/apps/common/templates/common/partials/icons.html -->
+
+<style>
+.wf-materialicons-n4-active .material-icons,
+.wf-materialiconsoutlined-n4-active .material-icons-outlined,
+.wf-materialiconstwotone-n4-active .material-icons-twotone,
+.wf-materialiconsround-n4-active .material-icons-round {
+  display: inline-block !important;
+}
+
+.material-icons,
+.material-icons-outlined,
+.material-icons-twotone,
+.material-icons-round {
+  display: none !important;
+}
+</style>
+
+<script>
+  WebFont.load({
+    google: {
+      families: ['Material Icons', 'Material Icons Outlined', 'Material Icons Two Tone', 'Material Icons Round' ]
+    },
+    timeout: 60000
+  });
+</script>
+
+<style>
+  .material-icons, .material-icons-outlined, .material-icons-round{
+    font-size: 1.5rem;
+  }
+</style>
+    <!-- core/apps/common/templates/common/partials/legacy-browsers.html -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="MobileOptimized" content="320">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="">
+
+<style>
+
+html {
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+}
+</style>
+
+    <!-- core/apps/common/templates/common/partials/css-reset.html -->
+<style>
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+</style>
+
+    <!-- core/apps/common/templates/common/partials/css-c2-basics.html -->
+<!-- For C2 facing apps that are staying on old styling for now -->
+
+<link rel="stylesheet" href="https://dpt78m53p45fm.cloudfront.net/deep_thought/8a577fc9a3b1ab045e5021d58613aebf5d534d44/common/old-theme.css">
+
+    
+<!-- core/apps/common/templates/common/partials/nouns.html -->
+
+<script>
+  CUSTOMER_NOUN = "patient";
+  CUSTOMER_NOUN_PLURAL = "patients";
+  CAPITALIZED_CUSTOMER_NOUN = "Patient";
+  CAPITALIZED_CUSTOMER_NOUN_PLURAL = "Patients";
+  STAFF_NOUN = "practitioner";
+  STAFF_NOUN_PLURAL = "practitioners";
+  CAPITALIZED_STAFF_NOUN = "Practitioner";
+  CAPITALIZED_STAFF_NOUN_PLURAL = "Practitioners";
+
+  ORGANISATION_NOUN = "Clinic";
+  CAPITALIZED_ORGANISATION_NOUN = "Clinic";
+</script>
+
+
+    
+<script>
+  STATIC_URL = "https://dpt78m53p45fm.cloudfront.net/deep_thought/8a577fc9a3b1ab045e5021d58613aebf5d534d44/";
+  API_ROOT = "https://app.10to8.com/api/janus/v1/";
+  APP_ROOT = "/apps/janus/tuneyourvibration/";
+  ORGANISATION_LOCALE = "en";
+  BROWSER_LOCALE = "en_GB";
+
+  AVAILABLE_TIMEZONES = ["Africa/Abidjan","Africa/Accra","Africa/Addis_Ababa","Africa/Algiers","Africa/Asmara","Africa/Bamako","Africa/Bangui","Africa/Banjul","Africa/Bissau","Africa/Blantyre","Africa/Brazzaville","Africa/Bujumbura","Africa/Cairo","Africa/Casablanca","Africa/Ceuta","Africa/Conakry","Africa/Dakar","Africa/Dar_es_Salaam","Africa/Djibouti","Africa/Douala","Africa/El_Aaiun","Africa/Freetown","Africa/Gaborone","Africa/Harare","Africa/Johannesburg","Africa/Juba","Africa/Kampala","Africa/Khartoum","Africa/Kigali","Africa/Kinshasa","Africa/Lagos","Africa/Libreville","Africa/Lome","Africa/Luanda","Africa/Lubumbashi","Africa/Lusaka","Africa/Malabo","Africa/Maputo","Africa/Maseru","Africa/Mbabane","Africa/Mogadishu","Africa/Monrovia","Africa/Nairobi","Africa/Ndjamena","Africa/Niamey","Africa/Nouakchott","Africa/Ouagadougou","Africa/Porto-Novo","Africa/Sao_Tome","Africa/Tripoli","Africa/Tunis","Africa/Windhoek","America/Adak","America/Anchorage","America/Anguilla","America/Antigua","America/Araguaina","America/Argentina/Buenos_Aires","America/Argentina/Catamarca","America/Argentina/Cordoba","America/Argentina/Jujuy","America/Argentina/La_Rioja","America/Argentina/Mendoza","America/Argentina/Rio_Gallegos","America/Argentina/Salta","America/Argentina/San_Juan","America/Argentina/San_Luis","America/Argentina/Tucuman","America/Argentina/Ushuaia","America/Aruba","America/Asuncion","America/Atikokan","America/Bahia","America/Bahia_Banderas","America/Barbados","America/Belem","America/Belize","America/Blanc-Sablon","America/Boa_Vista","America/Bogota","America/Boise","America/Cambridge_Bay","America/Campo_Grande","America/Cancun","America/Caracas","America/Cayenne","America/Cayman","America/Chicago","America/Chihuahua","America/Ciudad_Juarez","America/Costa_Rica","America/Creston","America/Cuiaba","America/Curacao","America/Danmarkshavn","America/Dawson","America/Dawson_Creek","America/Denver","America/Detroit","America/Dominica","America/Edmonton","America/Eirunepe","America/El_Salvador","America/Fort_Nelson","America/Fortaleza","America/Glace_Bay","America/Goose_Bay","America/Grand_Turk","America/Grenada","America/Guadeloupe","America/Guatemala","America/Guayaquil","America/Guyana","America/Halifax","America/Havana","America/Hermosillo","America/Indiana/Indianapolis","America/Indiana/Knox","America/Indiana/Marengo","America/Indiana/Petersburg","America/Indiana/Tell_City","America/Indiana/Vevay","America/Indiana/Vincennes","America/Indiana/Winamac","America/Inuvik","America/Iqaluit","America/Jamaica","America/Juneau","America/Kentucky/Louisville","America/Kentucky/Monticello","America/Kralendijk","America/La_Paz","America/Lima","America/Los_Angeles","America/Lower_Princes","America/Maceio","America/Managua","America/Manaus","America/Marigot","America/Martinique","America/Matamoros","America/Mazatlan","America/Menominee","America/Merida","America/Metlakatla","America/Mexico_City","America/Miquelon","America/Moncton","America/Monterrey","America/Montevideo","America/Montserrat","America/Nassau","America/New_York","America/Nome","America/Noronha","America/North_Dakota/Beulah","America/North_Dakota/Center","America/North_Dakota/New_Salem","America/Nuuk","America/Ojinaga","America/Panama","America/Paramaribo","America/Phoenix","America/Port-au-Prince","America/Port_of_Spain","America/Porto_Velho","America/Puerto_Rico","America/Punta_Arenas","America/Rankin_Inlet","America/Recife","America/Regina","America/Resolute","America/Rio_Branco","America/Santarem","America/Santiago","America/Santo_Domingo","America/Sao_Paulo","America/Scoresbysund","America/Sitka","America/St_Barthelemy","America/St_Johns","America/St_Kitts","America/St_Lucia","America/St_Thomas","America/St_Vincent","America/Swift_Current","America/Tegucigalpa","America/Thule","America/Tijuana","America/Toronto","America/Tortola","America/Vancouver","America/Whitehorse","America/Winnipeg","America/Yakutat","Antarctica/Casey","Antarctica/Davis","Antarctica/DumontDUrville","Antarctica/Macquarie","Antarctica/Mawson","Antarctica/McMurdo","Antarctica/Palmer","Antarctica/Rothera","Antarctica/Syowa","Antarctica/Troll","Antarctica/Vostok","Arctic/Longyearbyen","Asia/Aden","Asia/Almaty","Asia/Amman","Asia/Anadyr","Asia/Aqtau","Asia/Aqtobe","Asia/Ashgabat","Asia/Atyrau","Asia/Baghdad","Asia/Bahrain","Asia/Baku","Asia/Bangkok","Asia/Barnaul","Asia/Beirut","Asia/Bishkek","Asia/Brunei","Asia/Chita","Asia/Choibalsan","Asia/Colombo","Asia/Damascus","Asia/Dhaka","Asia/Dili","Asia/Dubai","Asia/Dushanbe","Asia/Famagusta","Asia/Gaza","Asia/Hebron","Asia/Ho_Chi_Minh","Asia/Hong_Kong","Asia/Hovd","Asia/Irkutsk","Asia/Jakarta","Asia/Jayapura","Asia/Jerusalem","Asia/Kabul","Asia/Kamchatka","Asia/Karachi","Asia/Kathmandu","Asia/Khandyga","Asia/Kolkata","Asia/Krasnoyarsk","Asia/Kuala_Lumpur","Asia/Kuching","Asia/Kuwait","Asia/Macau","Asia/Magadan","Asia/Makassar","Asia/Manila","Asia/Muscat","Asia/Nicosia","Asia/Novokuznetsk","Asia/Novosibirsk","Asia/Omsk","Asia/Oral","Asia/Phnom_Penh","Asia/Pontianak","Asia/Pyongyang","Asia/Qatar","Asia/Qostanay","Asia/Qyzylorda","Asia/Riyadh","Asia/Sakhalin","Asia/Samarkand","Asia/Seoul","Asia/Shanghai","Asia/Singapore","Asia/Srednekolymsk","Asia/Taipei","Asia/Tashkent","Asia/Tbilisi","Asia/Tehran","Asia/Thimphu","Asia/Tokyo","Asia/Tomsk","Asia/Ulaanbaatar","Asia/Urumqi","Asia/Ust-Nera","Asia/Vientiane","Asia/Vladivostok","Asia/Yakutsk","Asia/Yangon","Asia/Yekaterinburg","Asia/Yerevan","Atlantic/Azores","Atlantic/Bermuda","Atlantic/Canary","Atlantic/Cape_Verde","Atlantic/Faroe","Atlantic/Madeira","Atlantic/Reykjavik","Atlantic/South_Georgia","Atlantic/St_Helena","Atlantic/Stanley","Australia/Adelaide","Australia/Brisbane","Australia/Broken_Hill","Australia/Darwin","Australia/Eucla","Australia/Hobart","Australia/Lindeman","Australia/Lord_Howe","Australia/Melbourne","Australia/Perth","Australia/Sydney","Canada/Atlantic","Canada/Central","Canada/Eastern","Canada/Mountain","Canada/Newfoundland","Canada/Pacific","Europe/Amsterdam","Europe/Andorra","Europe/Astrakhan","Europe/Athens","Europe/Belgrade","Europe/Berlin","Europe/Bratislava","Europe/Brussels","Europe/Bucharest","Europe/Budapest","Europe/Busingen","Europe/Chisinau","Europe/Copenhagen","Europe/Dublin","Europe/Gibraltar","Europe/Guernsey","Europe/Helsinki","Europe/Isle_of_Man","Europe/Istanbul","Europe/Jersey","Europe/Kaliningrad","Europe/Kirov","Europe/Kyiv","Europe/Lisbon","Europe/Ljubljana","Europe/London","Europe/Luxembourg","Europe/Madrid","Europe/Malta","Europe/Mariehamn","Europe/Minsk","Europe/Monaco","Europe/Moscow","Europe/Oslo","Europe/Paris","Europe/Podgorica","Europe/Prague","Europe/Riga","Europe/Rome","Europe/Samara","Europe/San_Marino","Europe/Sarajevo","Europe/Saratov","Europe/Simferopol","Europe/Skopje","Europe/Sofia","Europe/Stockholm","Europe/Tallinn","Europe/Tirane","Europe/Ulyanovsk","Europe/Vaduz","Europe/Vatican","Europe/Vienna","Europe/Vilnius","Europe/Volgograd","Europe/Warsaw","Europe/Zagreb","Europe/Zurich","Indian/Antananarivo","Indian/Chagos","Indian/Christmas","Indian/Cocos","Indian/Comoro","Indian/Kerguelen","Indian/Mahe","Indian/Maldives","Indian/Mauritius","Indian/Mayotte","Indian/Reunion","Pacific/Apia","Pacific/Auckland","Pacific/Bougainville","Pacific/Chatham","Pacific/Chuuk","Pacific/Easter","Pacific/Efate","Pacific/Fakaofo","Pacific/Fiji","Pacific/Funafuti","Pacific/Galapagos","Pacific/Gambier","Pacific/Guadalcanal","Pacific/Guam","Pacific/Honolulu","Pacific/Kanton","Pacific/Kiritimati","Pacific/Kosrae","Pacific/Kwajalein","Pacific/Majuro","Pacific/Marquesas","Pacific/Midway","Pacific/Nauru","Pacific/Niue","Pacific/Norfolk","Pacific/Noumea","Pacific/Pago_Pago","Pacific/Palau","Pacific/Pitcairn","Pacific/Pohnpei","Pacific/Port_Moresby","Pacific/Rarotonga","Pacific/Saipan","Pacific/Tahiti","Pacific/Tarawa","Pacific/Tongatapu","Pacific/Wake","Pacific/Wallis","US/Alaska","US/Arizona","US/Central","US/Eastern","US/Hawaii","US/Mountain","US/Pacific"];
+  ORGANISATION_TIMEZONE = "Asia/Kathmandu";
+
+  ORG_ID = 184666;
+  ORG_NAME = "Christina Landry";
+  ORG_COUNTRY_CODE = "NP";
+  ONLINE_PHONE_LOCATION_ID = 1272310;
+  ORGANISATION_CANCELLATION_POLICY = "";
+
+  NO_SLOTS_CUSTOMER_HELP_MESSAGE = "**DISCLAIMER**\nInformation received \nfrom Christina Landry at\n\"Tune  Vibration Energy Healing\" is for educational and holistic purposes only and is not intended to replace medical care, diagnose nor treat any medical condition. \n\nThe information received is not intended as medical advice. \n\nPlease talk to your doctor before implementing any health related information.\n Do not put off seeking medical care and or any other services.\n🙏♥️\n";
+
+  SHOW_BRANDING = false;
+
+  SOURCE = "hactar";
+
+  ALLOW_CART_BOOKINGS = true;
+  ALLOW_BOOK_AGAIN = true;
+  ALLOW_BOOKING_FLOW_REDIRECT = false;
+  ON_SUCCESS_REDIRECT = null;
+  ON_FAILURE_REDIRECT = null;
+
+  ENABLE_HIPAA_FEATURES = true;
+  HIPAA_ENABLED_FOR_ORG = false;
+  SOCIAL_SECURITY_NUMBER_VISIBLE = false;
+  SOCIAL_SECURITY_NUMBER_MANDATORY = false;
+
+  PAYMENT_METHOD = "stripe";
+
+  PAYPAL_ACCOUNT_EMAIL = "iveskelly@yahoo.co.uk";
+  PAYPAL_ENVIRONMENT = null;
+
+  STRIPE_KEY = "pk_live_Vkbvt5Qx6lbziBYKxzpZnruR";
+  STRIPE_SCA_ENABLED = true;
+  STRIPE_CONNECTED_ACCOUNT_ID = "acct_1KRONBFyGUt4p84q";
+
+  TAKE_PAYMENT_URL = "https://app.10to8.com/book/tuneyourvibration/take-payment/";
+  BOOK_AGAIN_URL = "https://app.10to8.com/book/tuneyourvibration/";
+  PAYPAL_BOOK_AGAIN_URL = "https://app.10to8.com/book/tuneyourvibration/";
+  PAYPAL_IPN_CALLBACK = "https://app.10to8.com/api/janus/v1/paypal-ipn/";
+
+  USER_DETAILS = {"name":"","email":"","number":"","number_country":""};
+  AS_AUTHED_USER = false;
+  OFFER_LOGOUT = false;
+  USERNAME = null;
+  LOGOUT_URL = "/my/user/logout/?next=/book/tuneyourvibration/";
+
+  IS_LOGGED_IN = false;
+  C2_LOGIN_REQUIRED = false;
+
+  PREVENT_CHANGE_SERVICE = false;
+  BOOKING_PAGE_ID = 187183
+  DATE_OF_BIRTH_FIELD_ENABLED = false;
+</script>
+
+    
+
+<script>
+  PAGE_LAYOUT = {"groups":[{"name":"🇳🇵 Nepal In-person Healing Services","services":[{"name":"🇳🇵Nepal Location✨The Magic (90 min) ✨\"Where MAGIC Happens” ","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1954077/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1058958/"},{"name":"🇳🇵✨The Awakening” – Deep Energy Healing (90 mins)  ","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1954076/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1063034/"},{"name":"🇳🇵 \"The Rejuvenation\" (60min) ✨Reverse aging & release stress.","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1603251/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/899209/"}],"resource_uri":"https://app.10to8.com/api/janus/v1/group/270374/"},{"name":"Virtual * Sessions","services":[{"name":"🌐 60-Min Virtual | Awaken Your Gifts: Intuitive Mentorship + Energy Activation ($200)","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1955347/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1064178/"},{"name":"✨📱 60-Min Reiki Healing, Chakra Balancing & Intuitive Reading ($200)","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1872100/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1015413/"},{"name":"✨🤍 (30 min- Virtual Aura Cleansing, Cord Cutting, Chakra Balancing (USD $125)","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1958107/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1066589/"},{"name":"✨📱 30-Min Reiki Healing, Chakra Balancing & Intuitive Reading (USD $150)","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1872074/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1015400/"},{"name":"🔮 60-Min Channeled Reading with Tarot ($195)","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1954773/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1063674/"},{"name":"🔮 (30 minute) Channeled Reading with Tarot Reading  (USD $125)","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1954774/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1063675/"}],"resource_uri":"https://app.10to8.com/api/janus/v1/group/255691/"},{"name":"Group Sound Healing","services":[{"name":"Group Frequency Energy Healing/ Private or Group Yoga Classes","service_details":["https://app.10to8.com/api/janus/v1/service-detail/1955472/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service/1064279/"}],"resource_uri":"https://app.10to8.com/api/janus/v1/group/270752/"}]};
+  SERVICE_DETAILS = [{"id":1872100,"name":"✨📱 60-Min Reiki Healing, Chakra Balancing & Intuitive Reading ($200)","duration":3300,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>A transformative experience designed to bring healing, clarity, and energetic balance.   <\/p>\n<p>A virtual Reiki + aura clearing, chakra balancing session for stress relief, energetic reset, and soul guidance. <\/p>\n<p>I channel healing energy remotely, balance your chakras, and finish with an intuitive reading tailored to your current life questions.<\/p>\n<p>Feel lighter, centered, and recharged<\/p>\n<p>Balance mind-body-spirit through Reiki<\/p>\n<p>Receive guidance through intuitive messages<\/p>\n<p>🌍 This session is available worldwide — a powerful online healing experience from the comfort of your home.<\/p>\n<p>👉 Book now to reset your energy field.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":true,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1872100/"},{"id":1958107,"name":"✨🤍 (30 min- Virtual Aura Cleansing, Cord Cutting, Chakra Balancing (USD $125)","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>✨30-Minute Aura Cleansing, Cord Cutting , Chakra Balancing<\/p>\n<p>🌿 Cleanse and refresh your aura\n✂️ Cut cords &amp; release draining attachment<\/p>\n<p>🔮 Restore harmony across your chakras<\/p>\n<p>Step into renewed clarity, vitality, and inner peace in just 30 minutes — from anywhere in the world.. <\/p>\n<p>A session designed to cleanse your energy, cut cords, release attachments, and restore balance to your chakras for renewed clarity and harmony.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1958107/"},{"id":1872074,"name":"✨📱 30-Min Reiki Healing, Chakra Balancing & Intuitive Reading (USD $150)","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>A transformative experience designed to bring healing, clarity, and energetic balance.   <\/p>\n<p>A complete virtual Reiki + aura clearing, chakra balancing session for stress relief, energetic reset, and soul guidance. <\/p>\n<p>I channel healing energy remotely, balance your chakras, and finish with an intuitive reading tailored to your current life questions.<\/p>\n<p>Feel lighter, centered, and recharged<\/p>\n<p>Balance mind-body-spirit through Reiki<\/p>\n<p>Receive guidance through intuitive messages<\/p>\n<p>🌍 This session is available worldwide — a powerful online healing experience from the comfort of your home.<\/p>\n<p>👉 Book now to reset your energy field.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":true,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1872074/"},{"id":1955347,"name":"🌐 60-Min Virtual | Awaken Your Gifts: Intuitive Mentorship + Energy Activation ($200)","duration":3300,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>This online energy healing session is designed to awaken your intuitive gifts while clearing energetic blocks. Through distance Reiki, sound frequency activation, and spiritual mentorship, you’ll receive personalized guidance to align with your highest self.<\/p>\n<p>Release stuck energy &amp; old patterns<\/p>\n<p>Expand intuition &amp; spiritual awareness<\/p>\n<p>Receive clear direction for your path<\/p>\n<p>✨ Perfect for anyone seeking global spiritual mentorship, intuitive activation, and virtual energy healing.\n👉 Book your worldwide session today. Timezones adjust automatically.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1955347/"},{"id":1954076,"name":"🇳🇵✨The Awakening” – Deep Energy Healing (90 mins)  ","duration":5400,"price":13000.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":true,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"<p>A powerful 90-minute healing journey designed to remove deep energetic blockages and restore spiritual clarity.<\/p>\n<p>९० मिनेटको शक्तिशाली उपचार यात्रा जसले गहिरो ऊर्जात्मक अवरोधहरू हटाएर आत्मिक स्पष्टता पुन: ल्याउँछ।<\/p>\n<p>This session removes and purifies heavy or negative energy trapped in your body and mind.<\/p>\n<p>यो विधाले शरीर र मनभित्र जमेको भारी वा नकारात्मक ऊर्जा हटाउँछ र शुद्ध बनाउँछ।<\/p>\n<p>✨ Session Highlights ✨\n✨ सेसनका जादुमयी पक्षहरू ✨<\/p>\n<p>Healing through sacred sound vibrations\nपवित्र ध्वनि कम्पनमार्फत उपचार<\/p>\n<p>Chakra balancing and aura cleansing\nचक्र सन्तुलन र अ‍ोरा शुद्धिकरण<\/p>\n<p>Energy balancing practices\nऊर्जा सन्तुलन गर्ने अभ्यासहरू<\/p>\n<p>Tree of Life grid healing using ritual stones\nपवित्र रिचुअल स्टोन प्रयोग गरेर ट्री अफ लाइफ ग्रिड हिलिङ<\/p>\n<p>Cord cutting (release toxic ties)\nनकारात्मक सम्बन्धको ऊर्जा काट्ने (cord cutting)<\/p>\n<p>Clearing old energetic blocks\nपुराना ऊर्जा ब्लकहरू हटाउन<\/p>\n<p>✨ Divine Prediction ✨\n✨ भविष्यज्ञान ✨<\/p>\n<p>Receive spiritual insights and intuitive messages that reveal hidden blocks and your life path.\nतपाईंको ऊर्जा शरीरमा लुकेका अवरोधहरूलाई देखाउने र जीवनमार्ग प्रष्ट पार्ने आध्यात्मिक सन्देशहरू प्राप्त गर्नुहोस्।<\/p>\n<p>You’ll leave feeling lighter, spiritually aligned, and more connected to your soul’s purpose.\nसेसनपछि तपाईं हल्का, आत्मासँग जोडिएको, र जीवनको उद्देश्यप्रति स्पष्ट महसुस गर्नुहुनेछ।<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1954076/"},{"id":1954774,"name":"🔮 (30 minute) Channeled Reading with Tarot Reading  (USD $125)","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>✨ This virtual session blends channeled messages and tarot reading to bring clarity, guidance, and energetic alignment. <\/p>\n<p>A deep channeled psychic reading with tarot blended with energetic healing. <\/p>\n<p>Gain clarity on relationships, purpose, or transitions while receiving subtle energy clearing during the session.<\/p>\n<p>Receive accurate, intuitive tarot guidance<\/p>\n<p>Heal through channeled frequency work<\/p>\n<p>Find clarity and empowerment for your next steps<\/p>\n<p>✨ Ideal if you’re seeking a psychic tarot reading online with healing support.<\/p>\n<p>👉 Book your global channeled reading today.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":true,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1954774/"},{"id":1954773,"name":"🔮 60-Min Channeled Reading with Tarot ($195)","duration":3300,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>✨ This virtual session blends channeled messages and tarot reading to bring clarity, guidance, and energetic alignment. <\/p>\n<p>A deep channeled psychic reading with tarot blended with energetic healing. <\/p>\n<p>Gain clarity on relationships, purpose, or transitions while receiving subtle energy clearing during the session.<\/p>\n<p>Receive accurate, intuitive tarot guidance<\/p>\n<p>Heal through channeled frequency work<\/p>\n<p>Find clarity and empowerment for your next steps<\/p>\n<p>✨ Ideal if you’re seeking a psychic tarot reading online with healing support.<\/p>\n<p>👉 Book your global channeled reading today.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":true,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1954773/"},{"id":1954077,"name":"🇳🇵Nepal Location✨The Magic (90 min) ✨\"Where MAGIC Happens” ","duration":5400,"price":14000.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":true,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"<p>🌸 English + Nepali Version 🌸<\/p>\n<p>Deep Energy Healing ✨\nगहिरो ऊर्जा उपचार ✨<\/p>\n<p>This method removes and purifies the heavy/negative energies stored in the body and mind.\nयस विधिले शरीर र मनमा संचित भएका भारी/नकारात्मक ऊर्जाहरूलाई हटाउँछ र शुद्ध पार्छ।<\/p>\n<p>✨ Magical elements of this session ✨\n✨ यस सत्रका जादुई तत्वहरू ✨<\/p>\n<p>✨ Healing through sound vibrations\n✨ ध्वनि तरंगमार्फत उपचार<\/p>\n<p>✨ Energy-balancing practices\n✨ ऊर्जा सन्तुलन अभ्यासहरू<\/p>\n<p>✨ Aura cleansing\n✨ आभा शुद्धिकरण<\/p>\n<p>✨ Chakra balancing\n✨ चक्र सन्तुलन<\/p>\n<p>✨ Tree of Life grid point healing using sacred ritual stones\n✨ पवित्र अनुष्ठानिक ढुङ्गा प्रयोग गरेर जीवन-वृक्ष ग्रिड बिन्दु उपचार<\/p>\n<p>✨ Shamanic Chumpi Stones ritual cleansing and healing.\n✨ शमानीक चुम्पी ढुङ्गा अनुष्ठानिक शुद्धिकरण र उपचार<\/p>\n<p>✨ Chanting Vibrations into the Chakras, and body to release old stagnant stuck energy.\n✨ चक्रहरू र शरीरमा कम्पन मन्त्र उच्चारण गरेर पुराना अड्किएका ऊर्जाहरू मुक्त गर्ने<\/p>\n<p>✨ Divine Prediction\n✨ दैवी पूर्वानुमान<\/p>\n<p>This session identifies the hidden blocks and imbalances within your energy body.\nयस सत्रले तपाईंको ऊर्जा शरीरभित्र रहेका लुकेका अवरोध र असन्तुलनहरू पत्ता लगाउँछ।<\/p>\n<p>It then involves aura cleansing, cord cutting (removing negative energetic ties), and clearing old blocks.\nयसपछि आभा शुद्धिकरण, ऊर्जा डोरी काट्ने (नकारात्मक ऊर्जात्मक सम्बन्ध हटाउने), र पुराना अवरोधहरू सफा गर्ने प्रक्रिया समावेश हुन्छ।<\/p>\n<p>This process helps you hear the voice of your soul and see your life path more clearly.\nयस प्रक्रियाले तपाईंलाई आफ्नो आत्माको आवाज सुन्न र जीवन मार्ग अझ स्पष्ट रूपमा देख्न मद्दत गर्दछ।<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1954077/"},{"id":1955472,"name":"Group Frequency Energy Healing/ Private or Group Yoga Classes","duration":3600,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"<p>✨ Harmonic Sound Energy Healing Journey ✨<\/p>\n<p>Let the sacred vibrations of sound and energy healing gently guide you into deep relaxation and inner alignment.<\/p>\n<p>This is an opportunity to reconnect with your essence in a serene, heart-centered space. <\/p>\n<p>With over 15 years of experience, Christina weaves ancient shamanic traditions with harmonic frequencies to restore balance, clarity, and peace.<\/p>\n<p>✨ Highlights of the Experience:\n🔹 Shamanic Chumpi Stones Healing.\nClear energetic blockages and realign your spirit using sacred Andean stones.<\/p>\n<p>🔹 Alchemy Sound Healing\nImmerse yourself in the transformative tones of crystal bowls, pyramids, and more—designed to soothe emotional turbulence and awaken your inner calm.<\/p>\n<p>✨ What to Expect:\nLie down comfortably. Close your eyes. Let the sound waves carry you into a meditative state of renewal and stillness.<\/p>\n<p>✨ Benefits:\n🌿 Deep Stress Relief\n🌿 Emotional and Energetic Balance\n🌿 Enhanced Clarity, Well-being &amp; Inner Connection<\/p>\n<p>Come home to yourself—held in a peaceful, supportive environment.<\/p>\n<p>✨Average group: \n10 -20 people <\/p>\n<p>✨Price:  NPR 2000 \"Per person\" <\/p>\n<p>📱 Contact: Christina via WhatsApp: +977 970-269-4437\nWebsite 👇 About Me👇\n🌐 www.tuneyourvibration.com<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":true,"is_bookable":false,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1269991/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1955472/"},{"id":1603251,"name":"🇳🇵 \"The Rejuvenation\" (60min) ✨Reverse aging & release stress.","duration":3600,"price":11000.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":true,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"<p>A blend of frequency sounds + multiple energy healing practices, intuitive reading of any pattern imbalances or blockages within the body. Binaural &amp; olfeggio healing frequencies music is played in the background. <\/p>\n<p>Healing frequency hertz help balance the hemispheres of the brain, and has healing properties that impact physical, emotional, and mental health. <\/p>\n<p>Sound healing frequencies include tuning forks that open and cleanse chakras, singing crystal pyramid that helps raise the vibration of your cells, release stress, and remove negative emotions, singing quartz bowls to calm and relax, Chakra bowls &amp; Tibetan healing bowl that cleanses negative energy, ailments, and blocks within the body.s<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":1800,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1603251/"},{"id":1954089,"name":"🇳🇵(60 min) शक्तिशाली ऊर्जा उपचार सेसन (Shaktishali Urja Upachar Session) – Powerful Energy Healing Session","duration":3600,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"<p>✨ गहिरो ऊर्जा उपचार ✨ यो विधाले शरीर र मनभित्र जमेको भारी/नकारात्मक ऊर्जा हटाउँछ र शुद्ध बनाउँछ।<\/p>\n<p>✨ यस सेसनमा पाइने जादु ✨<\/p>\n<p>ध्वनि तरंगमार्फत उपचार<\/p>\n<p>ऊर्जा सन्तुलन गर्ने अभ्यासहरू<\/p>\n<p>अ‍ोरा (Aura) शुद्धिकरण<\/p>\n<p>चक्र (Chakra) सन्तुलन<\/p>\n<p>ट्री अफ लाइफ ग्रिड प्वाइन्ट हिलिङ पवित्र रिचुअल स्टोनमार्फत उपचार<\/p>\n<p>✨ भविष्य ज्ञान (Divine Prediction) ✨\nऊर्जा शरीरभित्र लुकेका अवरोध र असन्तुलनलाई पहिचान गरिन्छ। त्यसपछि अ‍ोरा सफा गर्ने, नकारात्मक ऊर्जा काट्ने (cord cutting), र पुराना ब्लकहरू हटाउने प्रक्रिया गरिन्छ।\nयो सेसन तपाईंको आत्माको आवाज सुन्न र जीवनको मार्ग स्पष्ट देख्न मद्दत गर्छ।<\/p>\n<p>Deep Energy Healing ✨\nThis method removes and purifies the heavy/negative energies stored in the body and mind.<\/p>\n<p>✨ Magical elements of this session ✨<\/p>\n<p>Healing through sound vibrations<\/p>\n<p>Energy-balancing practices<\/p>\n<p>Aura cleansing<\/p>\n<p>Chakra balancing<\/p>\n<p>Tree of Life grid point healing using sacred ritual stones<\/p>\n<p>✨ Divine Prediction ✨\nThis session identifies the hidden blocks and imbalances within your energy body. It then involves aura cleansing, cord cutting (removing negative energetic ties), and clearing old blocks. This process helps you hear the voice of your soul and see your life path more clearly.<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1954089/"},{"id":1954163,"name":"🇳🇵Deep Energy Clearing & Stress Release (75 mins)  ३. गहिरो ऊर्जा सफा र ट्राउमा मुक्त गर्ने सेसन (७५ मिनेट) ","duration":3600,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"<p>Clear toxic emotions, painful memories, and soul blocks held in the body using sound, sacred stones, and metaphysical techniques.\nध्वनि, पवित्र स्टोनहरू, र मेटाफिजिकल विधिहरू प्रयोग गरी शरीरमा थुनिएको नकारात्मक भावना, पीडादायक सम्झना, र आत्मिक अवरोध हटाउने प्रक्रिया।<\/p>\n<p>A powerful session for inner peace, freedom, and emotional reset.<\/p>\n<p>आन्तरिक शान्ति, स्वतन्त्रता, र भावनात्मक रिफ्रेशका लागि शक्तिशाली सेसन।<\/p>","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":true,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1954163/"},{"id":1565852,"name":"Default","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1269991/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1565852/"},{"id":1565853,"name":"Blocked Time","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":true,"default_phone_number_country_code":"US","description":"","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1010699/","https://app.10to8.com/api/janus/v1/location/1269991/","https://app.10to8.com/api/janus/v1/location/1272310/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1565853/"},{"id":1565854,"name":"Calendar Import","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1565854/"},{"id":1565855,"name":"Travel Time","duration":1800,"price":0.0,"currency":"NPR","currency_symbol":"NPR","bookings_automatically_confirmed":true,"rebookings_automatically_confirmed":true,"show_price":false,"takes_payment":false,"payment_required":false,"number_required":true,"email_required":true,"allow_customer_to_select_timezone":false,"default_phone_number_country_code":"NP","description":"","cancellation_policy":"","constrain_email_domain_active":false,"email_domain":null,"allow_customer_to_select_staff":false,"force_customer_to_select_staff":false,"is_visible":false,"is_bookable":true,"buffertime_before_event":0,"buffertime_after_event":0,"area_based_availability":false,"locations":["https://app.10to8.com/api/janus/v1/location/1010696/","https://app.10to8.com/api/janus/v1/location/1269991/"],"staff":["https://app.10to8.com/api/janus/v1/staff/313406/"],"resource_uri":"https://app.10to8.com/api/janus/v1/service-detail/1565855/"}];
+  STAFF = [{"id":313406,"resource_uri":"https://app.10to8.com/api/janus/v1/staff/313406/","staff_photo":"https://static-production-10to8.s3.amazonaws.com/CACHE/images/staff-photo/c32ee2f8-64dd-4c97-a497-ed757bf5f612/fcb928b8-a2ac-4724-bbc1-21914a7109c5/logo-image/731ff222f66a25baa1a1d29797b9e21b.png","name":"Christina Landry","description":"Book Your Appointment ","video_conferencing_options":[{"name":"Google Meet","choice":"google_meet"}],"initials":"CL"}];
+  LOCATIONS = [{"id":1269991,"resource_uri":"https://app.10to8.com/api/janus/v1/location/1269991/","name":"Tune Vibration Energy Healing (Lalitpur, Nepal)","full_address":"Mulmi House, Gabahal Rd, Lalitpur 44600, Nepal","meta_type":null},{"id":1272310,"resource_uri":"https://app.10to8.com/api/janus/v1/location/1272310/","name":"Online / Phone","full_address":"","meta_type":"virtual"}];
+  SURVEY_QUESTIONS = [{"service_id":null,"questions":[{"id":112857,"question":"Informed Consent/Hold Harmless Waiver for Sound Energy Healing Treatments with Christina\n\nI understand that Sound Energy Healings are complementary healing modalities that in no way substitutes for medical interventions, body therapy, or psychotherapy.  \n\nI also understand that the healing practitioner may make suggestions for self-care as well as appropriate referrals.\n\nI acknowledge that an open communication is promoted between me and my healing practitioner to enhance a mutual understanding and acceptance of the energy work provided during the treatment setting.\n\nI  understand that there are numerous benefits possible through energy healing, such as diminished pain sensation, increased relaxation, relief from anxiety and enhanced sense of well-being.  \n\nThese effects may vary depending on each individual’s response patterns.  \nAlthough there are no known harmful effects from this type of intervention, I hold my healing practitioner Christina Landry  harmless from any possible effects that may cause temporary physical or emotional discomfort and agree to take full responsibility for my self-care and personal development.  \n\nI am in control of my own body and I can always “stop” at any time.\n\n**Text Inbox**\nFirst & Last name. ","type":"string","mandatory":true,"options":[]},{"id":124502,"question":"How To Prepare for In-person \nHealing Treatment: \n**Please Read Carefully**\n\n\"Do Not\" wear any colognes perfumes, fragrances. \nWear something comfortable, wear socks. No jewelry. No metal belts. \n\nNo more than 1 cup of coffee or caffeinated beverage 3 hours before treatments. \n\n\"Do Not\" drink alcoholic beverages, smoke weed, cigarettes, or have any drug substances. \n\nHave a light breakfast or lunch.\n\nNo food 1 hour before your appointment.\n\nThere will be vibrations from bowls, fork, chanting  down back & front part (the chakras) of the body. \n\nIf you are feeling sick please inform me beforehand. \"We will need to cancel & reschedule.\" \n\n* If you have any sensitivities to certain scents please advise me before the treatment day. \nI use organic essential oils. \n**Text \"Yes Confirm** inbox","type":"string","mandatory":true,"options":[]},{"id":124503,"question":"Check-In & Late Arrivals:\nPlease arrive 5-10 minutes prior to your appointment time. Late arrival may result in the shortening of your treatment in order to end at the scheduled time and serve the next client. \n\n**Initials inbox**","type":"string","mandatory":true,"options":[]},{"id":124504,"question":"Cancellation Policy\nI have a 6 hour cancelation policy. If you alter or cancel less than 6 hours before (or the evening or day of), I'll try to accommodate the change or reschedule if I have an opening but I would still need to charge for the session.🙏\n\n**Initial inbox**","type":"string","mandatory":true,"options":[]},{"id":137313,"question":"Christina’s Studies & Certifications:  \n\n 15+ years of studies, training and practice, \n\nChistina has trained in:  \n- Delphi University  \n- Arthur Findlay College  \n- Pacifica Graduate Institute (Jungian Psychology)  \n- Sound and color healing  \n- Meditation  \n- Trance mediumship  \n- Yoga  \n- Aromatherapy  \n\n✨Certifications:\n- Metaphysician Practitioner  \n- Registered Medium and Spiritual Advisor  \n- Sound Healing Specialist  \n- Yoga Instructor  \n- Fifth- and Ninth-Level Healer under the Holy Order of the Dove  \n\n✨Embark on your journey of transformation now!✨ \nExperience renewed energy and clarity in just one session.  ","type":"boolean","mandatory":true,"options":[]},{"id":137314,"question":"✨ What Happens in a Session?\n✅ Identifying the root cause of issues by focusing on blocked energy areas  \n✅ Removing negative energy through sound healing, chanting, and energy-based practices  \n✅ Receiving intuitive messages about signs of imbalance in the body and soul  \n✅ Releasing toxic relationships, painful memories, or old energetic blocks  \n✅ Healing through the Tree of Life grid with sacred ritual stones  \n✅ Aura cleansing and reconnecting with the soul’s voice. \n\n ✨Magical Aspects of the Sessions**  \n🔮 Healing through sound vibrations  \n🔮 Chakra balancing  \n🔮 Aura cleansing  \n🔮 Energy work to remove deep emotional wounds  \n🔮 Divine guidance for your soul and life path  \n\n✨ Begin Your Journey of Transformation Today!  \nExperience renewed energy and clarity in just one session.  ","type":"boolean","mandatory":true,"options":[]}]}];
+  OPT_INS = [{"id":15263,"question":"Permission to use your information to contact you about your bookings and agreement to our [Privacy Policy](https://10to8.com/legal)","mandatory":true}];
+  REBOOKING = null;
+  BURNER_LINK = null;
+</script>
+
+    <script type="text/javascript" src="/apps/jsi18n/janus/"></script>
+
+
+    <!-- core/apps/common/templates/commom/partials/sentry.html -->
+
+<script src="https://browser.sentry-cdn.com/5.3.0/bundle.min.js" crossorigin="anonymous"></script>
+
+<script>
+if(typeof Sentry === "undefined") {
+  /* Filler so the app doesn't have to check for the existance of Sentry everywhere */
+  window.Sentry = {
+    forceLoad: function() {},
+    onLoad: function(callback) { callback() },
+    configureScope: function() {},
+    init: function() {},
+    captureException: function() {},
+    captureMessage: function() {},
+    setExtra: function() {},
+    setUser: function() {},
+    addBreadcrumb: function() {},
+    withScope: function(callback) { callback() },
+    setTag: function() {}
+  };
+}
+</script>
+
+<script>
+  if("https://0a228d9df42b4ae58307f24f36472af8@app.10to8.com:9000/1") {
+    console.log("janus: initializing sentry");
+    Sentry.init({ dsn: "https://0a228d9df42b4ae58307f24f36472af8@app.10to8.com:9000/1" });
+    Sentry.configureScope(function(scope) {
+      scope.setUser({});
+      scope.setTags({"organisation":184666,"is_canary":true});
+    });
+  }
+</script>
+
+    <!-- core/apps/common/templates/common/partials/analytics.html -->
+
+
+<script>
+  (function() {
+    window.analytics = {
+      load: function() {},
+	    identify: function() {},
+	    track: function(event) { console.log(event); },
+	    page: function() {},
+	    alias: function() {},
+	    group: function() {},
+	    trackLink: function() {},
+	    trackForm: function() {},
+        track: function() {},
+	    ready: function() {},
+	  };
+  })();
+  var i;
+</script>
+    
+<script>
+FEATURES = {"edit_message_content":false,"edit_email_html":false,"send_custom_sms":false,"send_multiple_customer_sms_reminders":true,"rooms":false,"longer_sms":false,"edit_slug":true,"no_message_experiments":true,"six_month_inactive_cronofy_links_preserved":true,"inactive_cronofy_links_preserved":true,"sms_spoofing":false,"custom_domains":true,"custom_domains_in_sms":false,"multiple_location_types":false,"booking_restrictions":true,"calendar_sync":true,"staff_sms":true,"personal_branding":true,"send_voice":false,"paypal_payments":true,"sage_pay_payments":true,"no_stripe_application_fees":true,"multiple_location_availability":true,"customer_sms":true,"hipaa":false,"service_specific_booking_processes":false,"edit_logo_image":true,"multiple_booking_pages":false,"area_based_availability":false,"deactivate_within_product":true,"enterprise_connect_calendar":true,"staff_timezones":false,"salesforce_integration":false,"staff_photos":true,"multistaff_bookings":false,"multicustomer_bookings":true,"new_classes":true,"non_canary":false,"3d_secure_not_mandatory":true,"custom_salesforce":false,"zoom":true,"bulk_messaging":true,"bulk_sms_messaging":false,"signed_emails":false,"zoom_alternative_hosts":true,"whatsapp_messaging":false,"booking_invites":true,"adhoc_messaging":true,"change_c2_theme":true,"gpt_message_handler":false,"gpt_question_answerer":false,"google_meet":true,"remove_sisc_comms_branding":true};
+</script>
+
+<script>
+function expressInterestInFeature(featureName) {
+  parent.postMessage({
+    type: "expressInterestInFeature",
+    featureName: featureName
+  }, "*");
+}
+</script>
+
+    <script>
+
+document.addEventListener('gesturestart', function (event) {
+  event.preventDefault();
+}, false);
+</script>
+
+    
+    <style>
+      html {
+        overflow: auto;
+      }
+    </style>
+    
+
+<style>
+    /* Dynamic theme for c2 pages */
+    :root {
+        --primary-color: #056E76;
+        --secondary-color: #034F56;
+        --accent-color: #FF7A00;
+        --main-bg: #F6FBFF;
+
+        --info-color: #5789DF;
+        --success-color: #55E07C;
+        --warning-color: #FBC756;
+        --error-color: #FD4E5D;
+
+        --primary-hover-color: #039DA1;
+        --secondary-hover-color: #E0F4F4;
+        --main-hover-bg: #D8F1F4;
+
+        --primary-shadow-color: #C2E1E1;
+        --error-shadow-color: #FD4E5D30;
+        --warning-shadow-color: #FBC7565C;
+
+        --black-89: #000000E3; /* Used for primary black - headers, titles etc */
+        --black-64: #000000A3; /* Used for secondary titles, subtitles etc */
+        --black-48: #0000007A; /* Used for non-essential information, and input borders */
+        --black-36: #0000005C;
+        --black-28: #00000047;
+        --black-18: #0000002E;
+
+        --white-89: #FFFFFFE3;
+        --white-64: #FFFFFFA3;
+        --white-48: #FFFFFF7A;
+        --white-36: #FFFFFF5C;
+        --white-28: #FFFFFF47;
+        --white-18: #FFFFFF2E;
+    }
+
+    
+
+    
+
+    
+
+    #app .material {
+        
+        
+        color: black;
+        
+        
+            box-shadow: 0px 39px 24px -7px rgba(0, 0, 0, 0.10);
+            border-color: #00000012;
+        
+        
+        
+            border: 1px solid #0d0c2a30;
+        
+    }
+    #app .selectedServiceCard::before{
+        
+    }
+    #app .material input, #app .material textarea{
+        padding: 0.813rem 1rem;
+        border-radius:0.813rem;
+        border-color: #0000001A;
+        font-weight:600
+    }
+
+    #app input[type="date"]:focus,
+    #app input[type="tel"]:focus,
+    #app input[type="text"]:focus,
+    #app input[type="email"]:focus,
+    #app select:focus,
+    #app textarea:focus {
+      border-color: #BA9025;
+    }
+
+    #app input[type="radio"],
+    #app input[type="checkbox"],
+    #app .detailContainer label,
+    #app .surveyLabel,
+    #app .optInLabel,
+    #app .cancellationPolicy {
+      color: black;
+    }
+
+    #app input[type="checkbox"]:checked,
+    #app input[type="radio"]:checked {
+      color: #BA9025;;
+    }
+
+    
+    #app .selectedServiceCard, #app .selectedCard{
+        border-color: 
+                      #BA9025;
+                      
+    }
+    
+    
+    #app .selectedServiceCard::after{
+        border-bottom-color: 
+                              #BA9025;
+                              
+    }
+    
+    
+    #app .navigator .material-icons{
+        color: 
+                #BA9025;
+                
+    }
+    
+
+    #app .material-section {
+      
+      box-shadow: 0px 39px 41px -14px rgba(0, 0, 0, 0.10);
+      
+       
+       
+    }
+
+    #app button, #app .button {
+        
+        background-color: 
+                          #BA9025;
+                          
+        
+        color: white;
+        border-radius: 2rem;
+        
+        transition: none;
+        
+        
+    }
+    #app button:hover, #app .button:hover {
+        
+        background-color: 
+                          #82651a !important;
+                          
+        
+        filter: none;
+    }
+    #app button.secondary, #app .button.secondary{
+        background-color: #ececec;
+        
+        border: 
+                none;
+                
+        
+        
+        color:  
+                #BA9025;
+                
+        
+    }
+
+    #app button.secondary:hover, #app .button.secondary:hover{
+        
+            background: #e0d6d6 !important;
+        
+        
+        
+    }
+    #app .textButton{
+        border-radius: 0.813rem;
+        padding: 0.25rem 0.813rem 0.25rem 0.5rem;
+        cursor: pointer;
+        
+        color: 
+                #BA9025;
+                
+        
+        text-decoration: none;
+    }
+    #app .textButton:hover{
+        background: #e0d6d6 !important;
+        
+        
+    }
+
+    
+
+    #app .groupNameHeading {
+      
+
+      
+    }
+
+    /* More Styling options in theme */
+    
+    #app .stylerRoot {
+          
+          
+        }
+        body{
+          
+          
+        }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        #app .material-icons {
+          color: 
+                black;
+                
+        }
+    
+
+    
+    #app .stepPlaceHolder {
+      color: #BA9025;
+    }
+    
+
+    
+    #app .stepPlaceHolder.active {
+      border-color: #BA9025;
+    }
+    
+
+    #app .done {
+      
+      background-color: #BA9025;
+      
+      
+      color: white;
+      
+    }
+
+    
+
+    
+    #app .activeSeparator {
+      background-color: #BA9025;
+    }
+    
+
+    
+    #app .backArrow {
+      color: #BA9025;
+    }
+    
+
+    
+    #app .summarySectionTitle {
+      color: #BA9025;
+    }
+    
+
+    
+    #app .locationName {
+      color: #BA9025;
+    }
+    
+
+    
+    #app .nextSlotMsg {
+      color: #BA9025;
+    }
+    
+
+    
+    #app .summaryHeading {
+      color: #BA9025;
+    }
+    
+    
+    #app .staffInitials{
+      color: #BA9025;
+    }
+    
+    
+
+    #app .titleContainer{
+      color: #4b5563;
+    }
+
+    #app .stepPlaceHolder.next {
+      color: #374151;
+    }
+
+    #app .stepPlaceHolder.next,
+    #app .stepPlaceHolder.active{
+      background-color : #fff;
+    }
+
+    .removeBtn i {
+      color: white !important;
+    }
+
+    
+    #app .summaryBottomHeading {
+      color: #BA9025;
+    }
+    
+
+    
+
+    
+    #app .noPreference {
+      color: #BA9025;
+    }
+    
+
+    
+    #app .staffName {
+      color: #BA9025;
+    }
+    
+
+  </style>
+  
+
+    <style id="janus-styler">
+    </style>
+  </head>
+  <body class="source-hactar">
+    <!-- core/apps/janus/templates/janus/partials/google-tag-manager-body.html -->
+
+    <div id="app">
+    </div>
+    <style>
+.invisibleAriaAnnouncements {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+</style>
+
+<div id="ariaAnnouncements" role="region" aria-live="polite" class="invisibleAriaAnnouncements">
+</div>
+
+<script>
+  window.makeAriaAnnouncement = function(announcement) {
+    document.getElementById("ariaAnnouncements").innerHTML = announcement;
+  }
+</script>
+
+  </body>
+  
+
+  <!-- core/apps/common/templates/common/partials/google-analytics.html -->
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+
+ga('create', '<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());    gtag('config', 'G-XXXXXXXXXX'); </script>', 'auto', {'allowLinker': true});
+ga('require', 'linker');
+ga('linker:autoLink', [ 'www.tuneyourvibration.com' ]);
+
+
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+  <!-- core/apps/janus/templates/janus/partials/google-analytics-janus.html -->
+
+<script>
+window.addEventListener("onBookingNavigation", function(event) {
+  ga('set', 'page', event.detail.path);
+  ga('send', 'pageview');
+});
+</script>
+
+
+  <!-- core/apps/janus/templates/janus/partials/facebook-analytics.html -->
+
+  <script defer async src="https://dpt78m53p45fm.cloudfront.net/deep_thought/8a577fc9a3b1ab045e5021d58613aebf5d534d44/js/janus-0.0.1.js"></script>
+
+  
+  <!-- core/apps/common/templates/common/partials/google-maps.html -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE4aCbVhJPG-Mi0_wE9-3X9v9nWpKQDMY&v=3.33&libraries=places"></script>
+<script>
+  GOOGLE_APPS_API_KEY = "AIzaSyCE4aCbVhJPG-Mi0_wE9-3X9v9nWpKQDMY";
+</script>
+
+</html>

@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "generatedAt": "2025-10-11T09:15:00Z",
+    "generatedBy": "Codex CLI",
+    "perplexityResearch": "docs/research/2025-10-11-perplexity-seo-strategies.json",
+    "sourceDocs": [
+      "docs/SEO-PLAYBOOK.md",
+      "docs/seo-keyword-pillars.md"
+    ],
+    "vision": "World-dominating, vibe-coded SEO plan for a Codex-built Astro site"
+  },
+  "topKeywords": [
+    {
+      "keyword": "kathmandu sound healing",
+      "intent": "transactional",
+      "targetUrl": "/services",
+      "contentType": "service-hub",
+      "notes": "Primary H1 + schema anchor for Nepal audience; embed bilingual CTA and map snippet."
+    },
+    {
+      "keyword": "sound healing kathmandu",
+      "intent": "transactional",
+      "targetUrl": "/services",
+      "contentType": "service-hub",
+      "notes": "Mirror phrasing in hero lead and FAQ microcopy to capture conversational variants."
+    },
+    {
+      "keyword": "nepal sound healing",
+      "intent": "transactional",
+      "targetUrl": "/services",
+      "contentType": "service-hub",
+      "notes": "Add cultural cues, testimonials from Nepali clients, and structured data with areaServed Nepal."
+    },
+    {
+      "keyword": "singing bowl therapy nepal",
+      "intent": "informational",
+      "targetUrl": "/sound-healing-nepal/learn",
+      "contentType": "pillar",
+      "notes": "Long-form educational guide with course highlights, itinerary, and embedded short-form video."
+    },
+    {
+      "keyword": "singing bowl training nepal",
+      "intent": "transactional",
+      "targetUrl": "/sound-healing-nepal/learn",
+      "contentType": "pillar",
+      "notes": "Module overview, certification details, and downloadable syllabus gated by email."
+    },
+    {
+      "keyword": "sound healing retreat nepal",
+      "intent": "transactional",
+      "targetUrl": "/sound-healing-nepal/learn",
+      "contentType": "pillar",
+      "notes": "Include retreat calendar, partner venues, and schema.org/Event markup."
+    },
+    {
+      "keyword": "reiki healing nepal",
+      "intent": "transactional",
+      "targetUrl": "/services/reiki-kathmandu",
+      "contentType": "service-page",
+      "notes": "Dedicated in-person Reiki sales page with LocalBusiness schema and WhatsApp CTAs."
+    },
+    {
+      "keyword": "reiki kathmandu",
+      "intent": "transactional",
+      "targetUrl": "/services/reiki-kathmandu",
+      "contentType": "service-page",
+      "notes": "Highlight practitioner credentials, reviews, and AI Overview-ready Q&A block."
+    },
+    {
+      "keyword": "kathmandu energy healer",
+      "intent": "transactional",
+      "targetUrl": "/services",
+      "contentType": "service-hub",
+      "notes": "Add entity signals: studio address, coordinates, and knowledge panel-ready copy."
+    },
+    {
+      "keyword": "virtual sound healing",
+      "intent": "transactional",
+      "targetUrl": "/virtual-sound-healing",
+      "contentType": "service-page",
+      "notes": "900-word experience breakdown, audio teaser, and Service schema with areaServed US/UK/AU."
+    },
+    {
+      "keyword": "virtual sound bath session",
+      "intent": "transactional",
+      "targetUrl": "/virtual-sound-healing",
+      "contentType": "service-page",
+      "notes": "Add short-form video embed plus Perspectives-optimized transcript highlights."
+    },
+    {
+      "keyword": "distance reiki healer",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-reiki-reading",
+      "contentType": "service-page",
+      "notes": "Clarify booking flow, integration follow-up, and remote session tech requirements."
+    },
+    {
+      "keyword": "remote energy healing",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-aura-cleansing",
+      "contentType": "service-page",
+      "notes": "Structured FAQ with micro-conversions, highlight researcher-backed benefits."
+    },
+    {
+      "keyword": "distance energy healing",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-aura-cleansing",
+      "contentType": "service-page",
+      "notes": "Add AI Overview-ready bullet answers about sensations, timing, and integration tips."
+    },
+    {
+      "keyword": "remote chakra balancing",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-aura-cleansing",
+      "contentType": "service-page",
+      "notes": "Create chakra-specific microcopy with schema FAQ entries per chakra."
+    },
+    {
+      "keyword": "aura cleansing online",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-aura-cleansing",
+      "contentType": "service-page",
+      "notes": "Include ritual checklist, mail-out kit upsell, and WhatsApp CTA."
+    },
+    {
+      "keyword": "online cord cutting ceremony",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-aura-cleansing",
+      "contentType": "service-page",
+      "notes": "Add trust badge module and condensed AI Overviews answer snippet."
+    },
+    {
+      "keyword": "virtual intuitive reading",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-channeled-reading",
+      "contentType": "service-page",
+      "notes": "Embed session replay snippet and reviewers describing outcomes."
+    },
+    {
+      "keyword": "intuitive mentorship for empaths",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-mentorship",
+      "contentType": "service-page",
+      "notes": "Outline tiered mentorship pathways and integration resources."
+    },
+    {
+      "keyword": "empath mentorship online",
+      "intent": "transactional",
+      "targetUrl": "/services/virtual-mentorship",
+      "contentType": "service-page",
+      "notes": "Add progress roadmap, session cadence, and social proof targeting empaths."
+    },
+    {
+      "keyword": "nervous system reset sound therapy",
+      "intent": "informational",
+      "targetUrl": "/blog/nervous-system-reset-sound-therapy",
+      "contentType": "pillar",
+      "notes": "SGE-ready article with protocols, practitioner quotes, and downloadable checklist."
+    },
+    {
+      "keyword": "sound healing for founders",
+      "intent": "informational",
+      "targetUrl": "/blog/sound-healing-for-founders",
+      "contentType": "pillar",
+      "notes": "Thought-leadership piece linking to mentorship and corporate offers."
+    },
+    {
+      "keyword": "sound healing for empaths",
+      "intent": "informational",
+      "targetUrl": "/blog/sound-healing-for-empaths",
+      "contentType": "pillar",
+      "notes": "Include empathy burnout quiz and email capture."
+    },
+    {
+      "keyword": "distance reiki for anxiety",
+      "intent": "informational",
+      "targetUrl": "/blog/distance-reiki-anxiety",
+      "contentType": "pillar",
+      "notes": "Answer People Also Ask clusters, cite studies, add FAQ schema."
+    },
+    {
+      "keyword": "distance reiki for sleep",
+      "intent": "informational",
+      "targetUrl": "/blog/distance-reiki-sleep",
+      "contentType": "pillar",
+      "notes": "Bedtime ritual lead magnet plus internal links to reiki services."
+    },
+    {
+      "keyword": "virtual sound bath for teams",
+      "intent": "transactional",
+      "targetUrl": "/services/group-sound-bath",
+      "contentType": "service-page",
+      "notes": "Corporate-focused section with package tiers and PDF download."
+    },
+    {
+      "keyword": "corporate sound healing retreat",
+      "intent": "transactional",
+      "targetUrl": "/services/group-sound-bath",
+      "contentType": "service-page",
+      "notes": "Add success metrics, facilitator roster, and inquiry form."
+    },
+    {
+      "keyword": "book virtual sound healing",
+      "intent": "transactional",
+      "targetUrl": "/virtual-sound-healing",
+      "contentType": "service-page",
+      "notes": "Stick CTA button and structured data for CallAction."
+    },
+    {
+      "keyword": "sound healer christina",
+      "intent": "branded",
+      "targetUrl": "/about",
+      "contentType": "about-page",
+      "notes": "Elevate E-E-A-T: credentials, media appearances, and timeline."
+    },
+    {
+      "keyword": "tune your vibration sessions",
+      "intent": "branded",
+      "targetUrl": "/",
+      "contentType": "homepage",
+      "notes": "Feature signature offers, entity schema, and clarifying hero copy."
+    }
+  ],
+  "strategyPhases": [
+    {
+      "name": "Phase 0 — Vibe Calibration",
+      "timeline": "Weeks 1-2",
+      "objectives": [
+        "Lock in analytics, schema baseline, and AI overview readiness signals.",
+        "Capture current rankings, crawl status, and user flows."
+      ],
+      "tasks": [
+        "Run full technical audit (Lighthouse + PageSpeed + Astro check) and document in docs/seo/audit-logs/",
+        "Install/verify Plausible or GA4, configure WhatsApp click events, and note IDs in FOUNDATION-EXECUTION-CHECKLIST.md",
+        "Use Perplexity research outputs to brief humans/Claude on prioritized SERP intent narratives",
+        "Archive screenshot + HTML capture of key SERPs in docs/research/serp-snapshots/"
+      ]
+    },
+    {
+      "name": "Phase 1 — Architecture Glow-Up",
+      "timeline": "Weeks 3-5",
+      "objectives": [
+        "Ship high-intent service routes with AI Overview-ready layouts.",
+        "Implement structured data foundation for local + virtual experiences."
+      ],
+      "tasks": [
+        "Author /services/reiki-kathmandu, /sound-healing-nepal/learn, /testimonials with modular components and bilingual toggles",
+        "Wire JSON-LD generators in src/lib/schema for LocalBusiness, Service, Event, FAQPage, and Review bundles",
+        "Refine /virtual-sound-healing layout with multimedia embeds, sticky CTAs, and conversational FAQs",
+        "Create programmatic internal linking component (RelatedFrequencyLinks) to bind services ↔ blogs ↔ testimonials"
+      ]
+    },
+    {
+      "name": "Phase 2 — Magnetic Content Current",
+      "timeline": "Weeks 6-10",
+      "objectives": [
+        "Publish educational pillars targeting emotional + corporate search intent.",
+        "Launch short-form video/audio assets to feed Perspectives and AI surfaces."
+      ],
+      "tasks": [
+        "Ship five priority blog pillars (keywords 21-25) with long-form depth, pull quotes, and lead magnets",
+        "Produce 30-60 second reels stored in public/media/ with captions + VideoObject schema",
+        "Spin up resource hub block on /services featuring latest pillars and testimonial snippets",
+        "Enable newsletter funnel tagging empath/founder/corporate segments via form integrations"
+      ]
+    },
+    {
+      "name": "Phase 3 — Authority Amplification",
+      "timeline": "Weeks 11-16",
+      "objectives": [
+        "Reinforce entity authority with reviews, backlinks, and partner co-marketing.",
+        "Iterate on conversion flows using analytics + qualitative feedback."
+      ],
+      "tasks": [
+        "Deploy review capture automation (WhatsApp/email) referencing key terms, publish fresh testimonials weekly",
+        "Secure 12+ contextual backlinks (Nepali wellness directories, retreats, podcasts) and log in docs/authority/outreach-tracker.md",
+        "Run quarterly title/meta CTR tests, documenting hypotheses + results in docs/seo/experiments.md",
+        "Refresh Perplexity research quarterly, diff keyword shifts, and adjust content roadmap accordingly"
+      ]
+    },
+    {
+      "name": "Phase 4 — Evergreen Resonance",
+      "timeline": "Quarterly ongoing",
+      "objectives": [
+        "Maintain SERP dominance with refresh cycles and AI-era experimentation.",
+        "Keep the vibe-coded loop tight between humans, Codex, and Claude."
+      ],
+      "tasks": [
+        "Review top SERPs for AI Overview inclusion, update answer blocks + schema where missing",
+        "Rotate seasonal offerings (e.g., solstice retreats) into /sound-healing-nepal/learn and sitemap",
+        "Summon Codex to regenerate audio/visual assets when engagement dips below target thresholds",
+        "Log every prompt chain + outcome inside AGENTS.md to fuel future vibe-coded sessions"
+      ]
+    }
+  ],
+  "agentPrompts": {
+    "codexPrompts": [
+      {
+        "label": "Service Page Glow-Up",
+        "prompt": "Codex, channel Christina’s sanctuary energy into a 900-word `/services/reiki-kathmandu` page. We need bilingual headers, LocalBusiness schema hook, WhatsApp CTAs, and AI Overview-friendly FAQs. Reflect the sonic palette while keeping copy actionable. Return Astro + Markdown updates."
+      },
+      {
+        "label": "Programmatic Link Web",
+        "prompt": "Codex, craft a reusable Astro component `RelatedFrequencyLinks` that stitches services ↔ blog pillars using intent tags. Lean on existing content collections, expose props for `currentSlug`, and output structured data for breadcrumbs."
+      },
+      {
+        "label": "Short-Form Video Embed",
+        "prompt": "Codex, embed a short-form video showcase on `/virtual-sound-healing`. Use a lightweight player (no heavy iframes), include transcripts for accessibility, and annotate with `VideoObject` schema. Keep design aligned with glassmorphism tokens."
+      }
+    ],
+    "claudeSpecPrompt": "Claude, draft a technical spec for Codex covering component architecture, schema payloads, and acceptance criteria for the new `/sound-healing-nepal/learn` pillar page. Include data mapping for course modules, retreat schedule, and lead magnet capture.",
+    "humanCue": "Humans cue the vibe-coded loop by selecting priority tasks, pasting Perplexity insights, and approving Codex deployments inside Cursor. Always document prompt → response chains in PR notes."
+  },
+  "instructions": {
+    "codingStyle": "Two-space indentation, trailing commas, glass aesthetic intact. All content authored by Codex in Cursor; humans review, Claude spec-checks.",
+    "schemaGuidelines": "Emit JSON-LD via src/lib/schema helpers. Validate with Google Rich Results before merging.",
+    "mediaPolicy": "Store hero and reel assets under public/media or src/assets with descriptive filenames. Compress before commit.",
+    "translationRhythm": "Prepare Nepali language variants in parallel markdown blocks; hold hreflang rollout until translations approved.",
+    "testingLoop": "Before every PR, run `npm run check`, `npm run build`, document QA in SMOKE-TEST-CHECKLIST.md with timestamped notes."
+  },
+  "progressChecklist": [
+    "Log Perplexity research artifact path in docs/research/README.md with date + query.",
+    "After each major change, run `npm run check && npm run build`; attach logs to PR description.",
+    "Update docs/seo/experiments.md with hypotheses, metrics, and outcomes for CRO/CTR tests.",
+    "Record manual QA steps in SMOKE-TEST-CHECKLIST.md and mark completed scenarios.",
+    "Sync AGENTS.md with prompt/response chain summaries before closing the session.",
+    "Commit using conventional messages (e.g., `feat: launch reiki kathmandu page`), tag related docs updates, and note remaining TODOs."
+  ],
+  "references": {
+    "perplexityCitations": [
+      "Simplified SEO Consulting — Holistic search behavior 2025",
+      "EngageCoders — AI Overviews optimization strategies",
+      "Heallist — Local SEO for holistic practices",
+      "Setupad — 2025 SEO technical priorities",
+      "Backlinko — Cross-surface SEO strategy insights"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+---
+export interface Props {
+  class?: string;
+  orientation?: "vertical" | "horizontal";
+  maxHeight?: string;
+}
+
+const {
+  class: className = "",
+  orientation = "vertical",
+  maxHeight,
+} = Astro.props;
+
+const inlineStyle = maxHeight
+  ? `--scroll-area-max-height: ${maxHeight};`
+  : undefined;
+---
+
+<div
+  class={`scroll-area ${className}`.trim()}
+  data-orientation={orientation}
+  style={inlineStyle}
+>
+  <slot />
+</div>
+
+<style>
+  .scroll-area {
+    position: relative;
+    max-height: var(--scroll-area-max-height, 100%);
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .scroll-area[data-orientation="vertical"] {
+    overflow-x: hidden;
+  }
+
+  .scroll-area[data-orientation="horizontal"] {
+    overflow-y: hidden;
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    .scroll-area::-webkit-scrollbar {
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+
+    .scroll-area::-webkit-scrollbar-thumb {
+      background-color: var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .scroll-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+
+  .dark .scroll-area::-webkit-scrollbar-thumb {
+    background-color: rgba(196, 187, 255, 0.45);
+  }
+</style>

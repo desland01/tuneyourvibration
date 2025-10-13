@@ -1,0 +1,168 @@
+---
+interface Props {
+  placement?: "floating" | "inline";
+  className?: string;
+}
+
+const { placement = "floating", className = "" } = Astro.props as Props;
+const floating = placement === "floating";
+const audioSrc = "/audio/singing-bowl.mp3";
+const wrapperClasses = [
+  "ambient-audio",
+  floating ? "pointer-events-none fixed bottom-5 left-5 z-40" : "inline-flex items-center gap-2",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+const buttonClasses = [
+  "ambient-button inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+  floating ? "pointer-events-auto" : "",
+].join(" ");
+---
+
+<div class={wrapperClasses} data-ambient-root data-audio-src={audioSrc} data-state="idle">
+  <button
+    type="button"
+    class={buttonClasses}
+    data-ambient-toggle
+    aria-pressed="false"
+    title="Toggle sound bath"
+  >
+    <span class="ambient-icon" data-label-play aria-hidden="true">
+      ▸
+    </span>
+    <span class="ambient-icon" data-label-stop aria-hidden="true" hidden>
+      ❚❚
+    </span>
+    <span class="ambient-title">
+      Sound bath
+    </span>
+  </button>
+</div>
+
+<script is:inline>
+  (() => {
+    const stopIfPlaying = () => {
+      const instance = window.__TYV_AMBIENT_AUDIO;
+      if (instance instanceof HTMLAudioElement && !instance.paused) {
+        instance.pause();
+      }
+    };
+
+    if (!window.__TYV_AMBIENT_DOC_WIRED) {
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState !== "visible") {
+          stopIfPlaying();
+        }
+      });
+
+      window.addEventListener("pagehide", stopIfPlaying);
+      window.__TYV_AMBIENT_DOC_WIRED = true;
+    }
+
+    const roots = document.querySelectorAll("[data-ambient-root]");
+    if (!roots.length) return;
+
+    roots.forEach((root) => {
+      if (!(root instanceof HTMLElement)) return;
+      if (root.dataset.initialised === "true") return;
+      root.dataset.initialised = "true";
+
+      const toggle = root.querySelector("[data-ambient-toggle]");
+      const playLabel = root.querySelector("[data-label-play]");
+      const pauseLabel = root.querySelector("[data-label-stop]");
+      const src = root.getAttribute("data-audio-src");
+
+      if (!(toggle instanceof HTMLButtonElement) || !src) return;
+      if (!(playLabel instanceof HTMLElement) || !(pauseLabel instanceof HTMLElement)) return;
+
+      const updateUi = (playing) => {
+        toggle.setAttribute("aria-pressed", playing ? "true" : "false");
+        playLabel.hidden = playing;
+        playLabel.setAttribute("aria-hidden", playing ? "true" : "false");
+        pauseLabel.hidden = !playing;
+        pauseLabel.setAttribute("aria-hidden", playing ? "false" : "true");
+        root.dataset.state = playing ? "playing" : "idle";
+      };
+
+      let audio = window.__TYV_AMBIENT_AUDIO;
+
+      const bindAudio = (instance) => {
+        if (root.dataset.audioBound === "true") {
+          return instance;
+        }
+        const handlePause = () => updateUi(false);
+        const handlePlay = () => updateUi(true);
+        instance.addEventListener("pause", handlePause);
+        instance.addEventListener("play", handlePlay);
+        root.dataset.audioBound = "true";
+        return instance;
+      };
+
+      const ensureAudio = () => {
+        if (audio instanceof HTMLAudioElement) {
+          bindAudio(audio);
+          return audio;
+        }
+        const instance = new Audio(src);
+        instance.loop = true;
+        instance.preload = "none";
+        window.__TYV_AMBIENT_AUDIO = instance;
+        audio = instance;
+        return bindAudio(instance);
+      };
+
+      toggle.addEventListener("click", async () => {
+        const instance = ensureAudio();
+        if (!(instance instanceof HTMLAudioElement)) return;
+        try {
+          if (instance.paused) {
+            await instance.play();
+            updateUi(true);
+          } else {
+            instance.pause();
+            updateUi(false);
+          }
+        } catch (error) {
+          console.warn("Ambient audio playback blocked", error);
+          updateUi(false);
+          root.dataset.error = "playback-blocked";
+        }
+      });
+
+      if (audio instanceof HTMLAudioElement) {
+        updateUi(!audio.paused);
+        bindAudio(audio);
+      }
+    });
+  })();
+</script>
+
+<style is:global>
+  [data-ambient-root] .ambient-button {
+    border-color: rgba(231, 222, 255, 0.35);
+    color: rgba(247, 240, 255, 0.9);
+    background: linear-gradient(135deg, rgba(147, 112, 219, 0.16), rgba(58, 34, 94, 0.18));
+  }
+
+  [data-ambient-root] .ambient-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  [data-ambient-root] [hidden] {
+    display: none !important;
+  }
+
+  [data-ambient-root] .ambient-title {
+    letter-spacing: 0.32em;
+  }
+
+  [data-ambient-root][data-state="playing"] .ambient-button {
+    background: linear-gradient(135deg, rgba(244, 143, 177, 0.38), rgba(168, 85, 247, 0.32), rgba(99, 102, 241, 0.42));
+    border-color: rgba(192, 132, 252, 0.75);
+    color: #fff;
+  }
+</style>

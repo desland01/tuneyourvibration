@@ -1,43 +1,41 @@
-# Astro Starter Kit: Minimal
+# Christina's Website · Astrogon Template
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This project now runs on the [Astrogon](https://github.com/astrogon/astrogon) Astro 5 template, wrapped with Tailwind CSS utilities and a handful of React islands. The goal is to keep the template’s rich collections (docs, blog, recipes, poetry, portfolio, etc.) while tailoring the content and styling to Christina’s brand.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Requirements
+- Node 22.x (use `nvm use 22` if available)
+- npm 10+
 
-## 🚀 Project Structure
+## Install & Dev Commands
+- `npm install` — install dependencies
+- `npm run dev` — start the local dev server at `http://localhost:4327`
+- `npm run build` — generate the production build in `dist/`
+- `npm run preview` — serve the built output locally
+- `npm run check` — run Astro’s diagnostics
+- `npm run style:verify` — compile Tailwind output and confirm required design tokens/selectors
+- `npm run lint:preflight` — run diagnostics plus style guardrails before PRs/handoffs
+- `npm run format` — format source files with Prettier + Tailwind plugin
+- `npm run postbuild` — optional Pagefind index builder for local search
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project Layout
+- `src/pages/` — Astro entry points (home, docs, blog, recipes, poetry, etc.)
+- `src/content/` — Markdown/MDX content collections (managed via `src/content.config.ts`)
+- `src/components/` — Astro + React UI (shortcodes, layouts, collection-specific components)
+- `src/styles/` — layered SCSS tokens (`main.scss`, `prose.scss`, `glass.scss`, etc.)
+- `src/lib/` — search helpers, RSS utilities, and theme logic
+- `public/` — static assets (favicons, fonts, images, manifest, robots)
+- `docs/` — customization notes from the upstream Astrogon template plus local brand docs
+- `wrangler.jsonc` — Cloudflare Workers deployment config (update `name` & `compatibility_date`)
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Refer to `docs/project-structure.md` and `docs/customization.md` for in-depth guidance from the Astrogon authors. `docs/brand-customization.md` extends those notes with Christina-specific workflow details.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Environment
+- Copy `.env.example` to `.env` and set `PUBLIC_SITE_URL` for sitemap/meta generation.
+- When deploying to Cloudflare Workers, keep `wrangler.jsonc` in sync with your account/app values.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Next Steps
+- Replace demo content across `src/content/**` with approved copy and assets.
+- Calibrate typography, colors, and glass morphism tokens in `src/styles/`.
+- Remove unused collections/routes once the final sitemap is settled.
+- Track QA in `SMOKE-TEST-CHECKLIST.md` and brand approvals in `FOUNDATION-EXECUTION-CHECKLIST.md`.
+- Reference the shared design tokens in `docs/design/system.md` before adjusting colors, type, or glass styling.

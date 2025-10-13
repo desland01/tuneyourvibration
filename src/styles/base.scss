@@ -1,0 +1,185 @@
+@reference "./main.scss";
+
+html {
+  font-size: 14px;
+  @apply h-screen;
+  color: var(--color-text-primary);
+  background-color: transparent;
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  @apply font-normal leading-relaxed;
+  color: rgba(255, 250, 255, 0.96);
+  text-shadow:
+    0 0 12px rgba(186, 158, 255, 0.55),
+    0 0 24px rgba(120, 95, 200, 0.3);
+  @apply flex flex-col min-h-screen;
+  background-color: transparent;
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#main-content {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), serif;
+  @apply font-bold leading-tight;
+  color: #ffffff;
+  text-shadow:
+    0 0 20px rgba(186, 158, 255, 0.85),
+    0 0 45px rgba(120, 95, 200, 0.45);
+  // @apply font-primary font-bold leading-tight bg-gradient-to-r from-orange-500 via-indigo-500 to-green-500 text-transparent bg-clip-text;
+}
+h1,
+.h1 {
+  font-size: 2.0736rem;
+}
+h2,
+.h2 {
+  font-size: 1.728rem;
+}
+h3,
+.h3 {
+  font-size: 1.44rem;
+}
+h4,
+.h4 {
+  font-size: 1.2rem;
+  @apply font-medium;
+}
+h5,
+.h5 {
+  font-size: 1rem;
+  @apply font-medium;
+}
+h6,
+.h6 {
+  font-size: 0.9375rem;
+  @apply font-medium;
+}
+
+b,
+strong {
+  @apply font-semibold;
+}
+
+// Apply hero glow typography to general copy outside card components
+body :where(h1, h2, h3, h4, h5, h6) {
+  color: #ffffff !important;
+  text-shadow:
+    0 0 20px rgba(186, 158, 255, 0.85),
+    0 0 45px rgba(120, 95, 200, 0.45) !important;
+}
+
+body
+  :where(
+    p,
+    li,
+    span,
+    strong,
+    em,
+    a,
+    blockquote,
+    dt,
+    dd,
+    label
+  ) {
+  color: rgba(255, 250, 255, 0.96) !important;
+  text-shadow:
+    0 0 12px rgba(186, 158, 255, 0.55),
+    0 0 24px rgba(120, 95, 200, 0.3) !important;
+}
+
+@media (min-width: 768px) {
+  h1,
+  .h1 {
+    font-size: 2.48832rem;
+  }
+  h2,
+  .h2 {
+    font-size: 2.0736rem;
+  }
+  h3,
+  .h3 {
+    font-size: 1.728rem;
+  }
+}
+
+img {
+  @apply mx-auto;
+}
+
+h1:not([no-intersect]),
+h2:not([no-intersect]),
+h3:not([no-intersect]),
+h4:not([no-intersect]),
+h5:not([no-intersect]),
+h6:not([no-intersect]),
+p:not([no-intersect]) {
+  animation: fadeIn 1000ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    animation: none !important;
+  }
+}
+
+a:hover,
+.a:hover {
+  @apply opacity-60;
+}
+
+hr {
+  @apply border;
+  border-color: var(--color-border);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.katex {
+  .base {
+    color: var(--color-text-secondary);
+  }
+}
+
+html.dark .astro-code,
+html.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+// code {
+//   @apply after:border-none;
+// }

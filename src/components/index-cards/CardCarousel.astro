@@ -1,0 +1,222 @@
+---
+export interface Props {
+  cards: string[];
+}
+
+const { cards } = Astro.props;
+
+const carouselId = `cards-${Math.random().toString(36).slice(2, 8)}`;
+
+const getTodayIndex = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const startOfYear = new Date(year, 0, 0);
+  const diff = today.getTime() - startOfYear.getTime();
+  const oneDay = 1000 * 60 * 60 * 24;
+  const dayOfYear = Math.floor(diff / oneDay);
+
+  let leapYearAdjustment = 0;
+  if (
+    ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) &&
+    dayOfYear > 59
+  ) {
+    leapYearAdjustment = 1;
+  }
+
+  return (dayOfYear + leapYearAdjustment - 1 + cards.length) % cards.length;
+};
+
+const todayIndex = cards.length > 0 ? getTodayIndex() : 0;
+---
+
+<div
+  class="conversation-carousel flex flex-col gap-6"
+  data-carousel={carouselId}
+  data-today-index={todayIndex}
+>
+  <div class="relative">
+    {
+      cards.map((card, index) => (
+        <article
+          class={`carousel-slide col-10 sm:col-8 md:col-6 mx-auto my-12 min-h-64 text-center content-center glass rounded-lg p-6 transition-opacity duration-300 ease-out ${
+            index === 0 ? "opacity-100" : "hidden opacity-0"
+          }`}
+          data-slide={index}
+          aria-hidden={index === 0 ? "false" : "true"}
+        >
+          <h3 class="text-lg sm:text-xl leading-relaxed">{card}</h3>
+        </article>
+      ))
+    }
+  </div>
+
+  {cards.length > 1 && (
+    <nav class="flex justify-center pb-8">
+      <div class="flex w-52 flex-col gap-2 rounded-md border border-border/40 bg-bg-s/60 p-3 text-txt-p shadow-lg backdrop-blur-sm dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/70 dark:text-darkmode-txt-p">
+        <div class="flex items-center justify-between gap-2">
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-md border border-transparent bg-bg-translucent text-base transition hover:border-border"
+            data-action="prev"
+            aria-label="Previous card"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+              />
+            </svg>
+          </button>
+          <div class="flex flex-col items-center">
+            <input
+              type="number"
+              class="w-14 rounded-md border border-border/40 bg-transparent p-1 text-center text-base outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+              min="1"
+              max={cards.length}
+              value="1"
+              data-input
+              aria-label="Jump to card number"
+            />
+            <span class="mt-1 text-xs text-txt-light dark:text-darkmode-txt-light">
+              of {cards.length}
+            </span>
+          </div>
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-md border border-transparent bg-bg-translucent text-base transition hover:border-border"
+            data-action="next"
+            aria-label="Next card"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-md border border-transparent bg-bg-translucent text-sm transition hover:border-border"
+            data-action="today"
+            title="Jump to today's card"
+            aria-label="Jump to today's card"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 15H5V10h14v9Zm0-11H5V6h14v2Z"
+              />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-md border border-transparent bg-bg-translucent text-sm transition hover:border-border"
+            data-action="random"
+            title="Jump to random card"
+            aria-label="Jump to random card"
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M10 6V4h4v2h1.79l3.5-3.5L21.71 2l-4 4 4 4-1.42 1.41L15.79 8H14v2h-4V8H8.21l-3.5 3.5L3.29 10l4-4-4-4L4.71 1.5 8.21 5H10Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  )}
+</div>
+
+{cards.length > 0 && (
+  
+  <script is:inline>
+    const script = document.currentScript;
+    const root = script?.previousElementSibling;
+    if (!(root instanceof HTMLElement) || !root.matches("[data-carousel]")) {
+      return;
+    }
+
+    const slides = Array.from(root.querySelectorAll("[data-slide]"));
+    if (!slides.length) {
+      return;
+    }
+
+    const input = root.querySelector<HTMLInputElement>("input[data-input]");
+    const total = slides.length;
+    const today = Number.parseInt(root.getAttribute("data-today-index") ?? "0", 10) || 0;
+    let current = 0;
+
+    const showSlide = (nextIndex) => {
+      if (!Number.isFinite(nextIndex)) return;
+      const normalised = ((Math.round(nextIndex) % total) + total) % total;
+
+      slides[current].classList.add("hidden");
+      slides[current].classList.add("opacity-0");
+      slides[current].classList.remove("opacity-100");
+      slides[current].setAttribute("aria-hidden", "true");
+
+      slides[normalised].classList.remove("hidden");
+      slides[normalised].classList.remove("opacity-0");
+      slides[normalised].classList.add("opacity-100");
+      slides[normalised].setAttribute("aria-hidden", "false");
+
+      current = normalised;
+      if (input instanceof HTMLInputElement) {
+        input.value = String(current + 1);
+      }
+    };
+
+    showSlide(0);
+
+    const actions = {
+      prev: () => showSlide(current - 1),
+      next: () => showSlide(current + 1),
+      today: () => showSlide(today),
+      random: () => {
+        if (total < 2) return;
+        let candidate = Math.floor(Math.random() * total);
+        if (candidate === current) {
+          candidate = (candidate + 1) % total;
+        }
+        showSlide(candidate);
+      },
+    };
+
+    root.querySelectorAll("[data-action]").forEach((button) => {
+      const action = button.getAttribute("data-action");
+      if (!action) return;
+      const handler = actions[action.trim()];
+      if (!handler) return;
+      button.addEventListener("click", handler);
+    });
+
+    if (input instanceof HTMLInputElement) {
+      input.addEventListener("change", (event) => {
+        const target = event.currentTarget;
+        if (!(target instanceof HTMLInputElement)) return;
+        const value = Number.parseInt(target.value, 10);
+        if (!Number.isNaN(value)) {
+          showSlide(value - 1);
+        }
+      });
+      input.addEventListener("focus", (event) => {
+        const target = event.currentTarget;
+        if (target instanceof HTMLInputElement) {
+          target.select();
+        }
+      });
+    }
+  </script>
+
+)}
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .conversation-carousel .carousel-slide {
+      transition: none;
+    }
+  }
+</style>

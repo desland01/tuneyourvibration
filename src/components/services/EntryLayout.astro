@@ -1,0 +1,363 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import Button from "@components/common/Button.astro";
+import type { ServicesEntry } from "@/types";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  entry: ServicesEntry;
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+
+const { Content } = await render(entry);
+
+const deliveryLabels: Record<ServicesEntry["data"]["delivery"], string> = {
+  "in-person-kathmandu": "In-Person · Kathmandu",
+  virtual: "Virtual · Worldwide",
+  group: "Group Experience",
+};
+
+const formatPrice = (price?: number, currency?: string) => {
+  if (price === undefined) return null;
+  try {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency ?? "USD",
+      maximumFractionDigits: 0,
+    }).format(price);
+  } catch {
+    return `${currency ?? "USD"} ${price}`;
+  }
+};
+
+const priceLabel = formatPrice(data.price, data.currency);
+const isVirtual = data.delivery === "virtual";
+
+const resolveCta = () => {
+  const cta = data.cta;
+  if (!cta) {
+    return { link: "/services", newtab: false, label: "Explore Services" };
+  }
+
+  if (cta.type === "whatsapp") {
+    return { link: cta.value, newtab: true, label: cta.label };
+  }
+
+  if (cta.type === "email") {
+    return { link: `mailto:${cta.value}`, newtab: false, label: cta.label };
+  }
+
+  return { link: cta.value, newtab: false, label: cta.label };
+};
+
+const cta = resolveCta();
+const benefits = (data.benefits ?? []).map((benefit) =>
+  typeof benefit === "string"
+    ? { title: benefit, description: "" }
+    : benefit,
+);
+const idealClients = data.idealClients ?? [];
+const includes = data.includes ?? [];
+const hasBenefits = benefits.length > 0;
+const hasIdealClients = idealClients.length > 0;
+const hasIncludes = includes.length > 0;
+const includesHeading = isVirtual ? "Your Virtual Ceremony Includes" : "What You Receive";
+const heroWidth = data.image?.width ?? 1200;
+const heroHeight = data.image?.height ?? 900;
+const heroAspectRatio = data.image
+  ? `${data.image.width} / ${data.image.height}`
+  : `${heroWidth} / ${heroHeight}`;
+const accentIcons = [
+  "solar:star-bold-duotone",
+  "solar:magic-stick-2-bold-duotone",
+  "solar:planet-bold-duotone",
+  "solar:radar-2-bold-duotone",
+];
+
+const getIcon = (index: number) => accentIcons[index % accentIcons.length];
+
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: data.seoTitle ?? data.title,
+  description: data.seoDescription ?? data.summary ?? data.description,
+  provider: {
+    "@type": "Person",
+    name: "Christina",
+  },
+  areaServed:
+    data.delivery === "virtual"
+      ? {
+          "@type": "Place",
+          name: "Worldwide",
+        }
+      : data.location
+        ? {
+            "@type": "Place",
+            name: data.location,
+          }
+        : undefined,
+  serviceType: data.delivery,
+  offers:
+    data.price !== undefined
+      ? {
+          "@type": "Offer",
+          price: data.price,
+          priceCurrency: data.currency ?? "USD",
+          availability: "https://schema.org/InStock",
+        }
+      : undefined,
+};
+
+const canonicalUrl = Astro.url.href;
+
+const faqLd = data.faq?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: data.faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
+---
+
+<BaseLayout
+  title={data.seoTitle ?? data.title}
+  description={data.seoDescription ?? data.description}
+  canonical={canonicalUrl}
+>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center mb-12">
+        <div class="xl:col-10">
+          <div class="glass rounded-[32px] p-6 md:p-10">
+            <div class="row items-center gap-y-8">
+              <div class="lg:col-6">
+                <p class="text-xs uppercase tracking-[0.35em] glow-caption mb-4">
+                  {deliveryLabels[data.delivery]}
+                </p>
+                <h1 class="text-h2 md:text-h1 mb-4 glow-heading hero-heading">
+                  {data.title}
+                </h1>
+                <p class="text-lg glow-body mb-6 leading-relaxed">
+                  {data.summary}
+                </p>
+                <div class="flex flex-wrap gap-3 text-sm glow-caption mb-8">
+                  {data.duration && <span class="px-4 py-1.5 rounded-full glass-t">{data.duration}</span>}
+                  {data.location && <span class="px-4 py-1.5 rounded-full glass-t">{data.location}</span>}
+                  {priceLabel && <span class="px-4 py-1.5 rounded-full glass-t">Exchange: {priceLabel}</span>}
+                </div>
+                <div class="flex flex-wrap gap-4">
+                  <Button label={cta.label} link={cta.link} newtab={cta.newtab} />
+                  <Button
+                    label="View All Services"
+                    link="/services"
+                    type="secondary"
+                  />
+                </div>
+              </div>
+              <div class="lg:col-6">
+                {data.image && (
+                  <div
+                    class="relative overflow-hidden rounded-[36px] border border-border/35 dark:border-darkmode-border/35 shadow-[0_32px_60px_rgba(9,2,24,0.35)]"
+                    style={`aspect-ratio: ${heroAspectRatio};`}
+                  >
+                    <Image
+                      src={data.image}
+                      alt={data.imageAlt}
+                      width={heroWidth}
+                      height={heroHeight}
+                      sizes="(min-width: 1440px) 560px, (min-width: 1024px) 44vw, (min-width: 768px) 60vw, 92vw"
+                      class="h-full w-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                      fetchpriority="high"
+                    />
+                    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-bg-p/90 via-transparent to-transparent dark:from-darkmode-bg-p/90" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <article class="prose dark:prose-invert max-w-none mb-12 glow-body">
+            <Content />
+          </article>
+        </div>
+      </div>
+
+      {hasBenefits && (
+        <div class="row justify-center mt-16">
+          <div class="xl:col-10">
+            <div class="text-center mb-10">
+              <h2 class="text-h3 font-primary glow-heading">
+                What Shifts During This Session
+              </h2>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              {benefits.map((benefit, index) => (
+                <div class="glass h-full rounded-3xl border border-border/40 px-6 py-8 text-left dark:border-darkmode-border/40">
+                  <div class="mb-4 flex justify-center">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full border border-border/50 bg-bg-s/40 text-txt-p dark:border-darkmode-border/50 dark:bg-darkmode-bg-s/40 dark:text-darkmode-txt-p">
+                      <Icon name={getIcon(index)} class="text-xl" />
+                    </div>
+                  </div>
+                  <p class="text-lg font-semibold glow-heading">
+                    {benefit.title}
+                  </p>
+                  {benefit.description && (
+                    <p class="mt-3 text-base leading-relaxed glow-body">
+                      {benefit.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {hasIncludes && (
+        <div class="row justify-center mt-16">
+          <div class="xl:col-10">
+            <div class="text-center mb-10">
+              <h2 class="text-h3 font-primary glow-heading">
+                {includesHeading}
+              </h2>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {includes.map((item, index) => (
+                <div class="glass h-full rounded-3xl border border-border/40 px-6 py-6 dark:border-darkmode-border/40">
+                  <div class="mb-3 flex justify-center">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border border-border/40 bg-bg-s/30 text-txt-p dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/30 dark:text-darkmode-txt-p">
+                      <Icon name={getIcon(index + 1)} class="text-lg" />
+                    </div>
+                  </div>
+                  <p class="text-base text-center leading-relaxed glow-body">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {hasIdealClients && (
+        <div class="row justify-center mt-16">
+          <div class="xl:col-10">
+            <div class="text-center mb-10">
+              <h2 class="text-h3 font-primary glow-heading">
+                Designed For
+              </h2>
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {idealClients.map((client, index) => (
+                <div class="glass h-full rounded-3xl border border-border/40 px-6 py-6 text-center dark:border-darkmode-border/40">
+                  <div class="mb-3 flex justify-center">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full border border-border/40 bg-bg-s/30 text-txt-p dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/30 dark:text-darkmode-txt-p">
+                      <Icon name={getIcon(index + 2)} class="text-lg" />
+                    </div>
+                  </div>
+                  <p class="text-base leading-relaxed glow-body">
+                    {client}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {data.sessionFlow?.length ? (
+        <div class="row justify-center mt-12">
+          <div class="lg:col-8">
+            <div class="glass rounded-xl p-6">
+              <h2 class="text-h4 font-primary mb-6 glow-heading">
+                Session Flow
+              </h2>
+              <ol class="space-y-6">
+                {data.sessionFlow.map((step, index) => (
+                  <li class="flex gap-4">
+                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-border/40 bg-gradient-to-br from-[#7650d8] via-[#6a4bd0] to-[#8b5ffc] text-lg font-semibold text-white shadow-[0_0_20px_rgba(134,101,233,0.45)] dark:border-darkmode-border/40">
+                      <Icon name={getIcon(index)} class="text-xl" />
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-primary glow-heading mb-2">
+                        {step.title}
+                      </h3>
+                      <p class="text-base glow-body">
+                        {step.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {data.faq?.length ? (
+        <div class="row justify-center mt-12">
+          <div class="lg:col-8">
+            <div class="glass rounded-xl p-6">
+              <h2 class="text-h4 font-primary mb-4 glow-heading">
+                Frequently Asked Questions
+              </h2>
+              <div class="space-y-4">
+                {data.faq.map((item) => (
+                  <details class="glass-t rounded-lg p-4">
+                    <summary class="cursor-pointer text-lg font-semibold glow-heading">
+                      {item.question}
+                    </summary>
+                    <p class="mt-3 text-base glow-body">
+                      {item.answer}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div class="row justify-center mt-16">
+        <div class="lg:col-8 text-center">
+          <div class="glass rounded-xl p-8">
+            <h2 class="text-3xl font-semibold mb-4 glow-heading">
+              Ready to Tune Your Vibration?
+            </h2>
+            <p class="text-base glow-body mb-6">
+              Christina holds a limited number of sessions each week so every ceremony receives full presence. Send a message with your time zone and intention to confirm availability.
+            </p>
+            <Button label={cta.label} link={cta.link} newtab={cta.newtab} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(serviceLd)}
+  </script>
+  {faqLd && (
+    <script type="application/ld+json">
+      {JSON.stringify(faqLd)}
+    </script>
+  )}
+</BaseLayout>

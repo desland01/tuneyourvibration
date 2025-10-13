@@ -1,0 +1,161 @@
+---
+import Button from "@components/common/Button.astro";
+import type { ServicesEntry } from "@/types";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  entry: ServicesEntry;
+  highlight?: boolean;
+}
+
+const { entry, highlight = false } = Astro.props;
+const data = entry.data;
+
+const deliveryLabels: Record<ServicesEntry["data"]["delivery"], string> = {
+  "in-person-kathmandu": "In-Person · Kathmandu",
+  virtual: "Virtual · Worldwide",
+  group: "Group Experience",
+};
+
+const formatPrice = (price?: number, currency?: string) => {
+  if (price === undefined) return null;
+  try {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency ?? "USD",
+      maximumFractionDigits: 0,
+    }).format(price);
+  } catch {
+    return `${currency ?? "USD"} ${price}`;
+  }
+};
+
+const priceLabel = formatPrice(data.price, data.currency);
+
+const resolveCta = () => {
+  const cta = data.cta;
+  if (!cta) {
+    return { link: "/services", newtab: false, label: "Explore Services" };
+  }
+
+  if (cta.type === "whatsapp") {
+    return { link: cta.value, newtab: true, label: cta.label };
+  }
+
+  if (cta.type === "email") {
+    return { link: `mailto:${cta.value}`, newtab: false, label: cta.label };
+  }
+
+  return { link: cta.value, newtab: false, label: cta.label };
+};
+
+const cta = resolveCta();
+const accentIcons = [
+  "solar:star-bold-duotone",
+  "solar:magic-stick-2-bold-duotone",
+  "solar:planet-bold-duotone",
+  "solar:radar-2-bold-duotone",
+];
+
+const normalizeBenefit = (benefit: any, index: number) => {
+  const label =
+    typeof benefit === "string"
+      ? benefit
+      : typeof benefit?.title === "string"
+        ? benefit.title
+        : JSON.stringify(benefit);
+  return {
+    label,
+    icon: accentIcons[index % accentIcons.length],
+  };
+};
+const normalizeInclude = (item: any) =>
+  typeof item === "string" ? item : item?.title ?? "";
+
+const benefits = (data.benefits ?? [])
+  .map((benefit, index) => normalizeBenefit(benefit, index))
+  .filter(({ label }) => Boolean(label))
+  .slice(0, 3);
+const includes = (data.includes ?? [])
+  .map(normalizeInclude)
+  .filter(Boolean)
+  .slice(0, 2);
+const fallbackSlug = "slug" in entry ? entry.slug : entry.id;
+const serviceUrl = `/services/${data.slug ?? fallbackSlug}`;
+---
+
+<div class="group relative h-full">
+  <a
+    href={serviceUrl}
+    class="absolute inset-0 z-20 rounded-3xl border border-transparent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent/80"
+    aria-label={`View details for ${data.title}`}
+  />
+  <article
+    class={`glass relative z-10 flex h-full w-full flex-col rounded-3xl border border-border/40 p-4 text-center transition-transform duration-300 group-hover:-translate-y-1 group-hover:border-accent/60 group-focus-within:-translate-y-1 group-focus-within:border-accent/60 dark:border-darkmode-border/40 ${highlight ? "shadow-[0_28px_60px_rgba(92,47,172,0.35)]" : ""}`}
+  >
+    {data.image && (
+      <div class="mb-3 overflow-hidden rounded-[20px] border border-border/40 bg-bg-s/40 dark:border-darkmode-border/40">
+        <div class="relative aspect-[3/4] w-full">
+          <Image
+            src={data.image}
+            alt={data.imageAlt}
+            width={600}
+            height={800}
+            sizes="(min-width: 1280px) 320px, (min-width: 1024px) 28vw, (min-width: 640px) 40vw, 84vw"
+            class="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    )}
+    <div class="mb-2 text-xs font-semibold uppercase tracking-[0.35em] text-txt-light dark:text-darkmode-txt-light">
+      {deliveryLabels[data.delivery]}
+    </div>
+    <h3 class="mb-2 text-2xl font-bold text-txt-p dark:text-darkmode-txt-p">
+      {data.title}
+    </h3>
+    <p class="mb-3 text-base leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+      {data.summary}
+    </p>
+    <div class="mb-3 text-sm text-txt-light dark:text-darkmode-txt-light">
+      <span>{data.duration}</span>
+      {data.location && (
+        <>
+          <span class="mx-2 opacity-50">•</span>
+          <span>{data.location}</span>
+        </>
+      )}
+    </div>
+    {priceLabel && (
+      <div class="mb-3 text-lg font-semibold text-txt-p dark:text-darkmode-txt-p">
+        {priceLabel}
+      </div>
+    )}
+    {benefits.length > 0 && (
+      <ul class="mb-3 flex flex-col items-center gap-3 text-sm leading-relaxed text-txt-p/80 dark:text-darkmode-txt-p/80">
+        {benefits.map((benefit) => (
+          <li class="flex w-full max-w-[260px] items-start gap-3 text-left">
+            <span class="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-border/40 bg-bg-s/40 text-accent dark:border-darkmode-border/40 dark:bg-darkmode-bg-s/40">
+              <Icon name={benefit.icon} class="text-base" />
+            </span>
+            <span class="flex-1 leading-relaxed">
+              {benefit.label}
+            </span>
+          </li>
+        ))}
+      </ul>
+    )}
+    {includes.length > 0 && (
+      <div class="mb-4 text-xs uppercase tracking-[0.35em] text-txt-light dark:text-darkmode-txt-light">
+        Includes: {includes.join(" • ")}
+      </div>
+    )}
+    <div class="mt-auto flex justify-center">
+      <div class="relative z-30">
+        <Button label={cta.label} link={cta.link} newtab={cta.newtab} />
+      </div>
+    </div>
+  </article>
+</div>

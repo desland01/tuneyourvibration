@@ -1,0 +1,81 @@
+---
+import {
+  footerQuickLinks,
+  inPersonSessionsNav,
+  virtualSessionsNav,
+} from "@/lib/navLinks";
+---
+
+<footer class="glass container lg:my-4 lg:rounded-lg intersect:animate-fadeUp text-txt-p">
+  <div class="row gap-y-8 py-8">
+    <div class="lg:col-7">
+      <div class="grid gap-8 text-left md:grid-cols-3">
+        <div>
+          <h3 class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-txt-light dark:text-darkmode-txt-light">
+            In-Person Sessions
+          </h3>
+          <ul class="space-y-2 text-sm text-txt-p/80 dark:text-darkmode-txt-p/80">
+            {inPersonSessionsNav.map((link) => (
+              <li>
+                <a class="hover:text-txt-p dark:hover:text-darkmode-txt-p" href={link.url}>
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-txt-light dark:text-darkmode-txt-light">
+            Virtual Sessions
+          </h3>
+          <ul class="space-y-2 text-sm text-txt-p/80 dark:text-darkmode-txt-p/80">
+            {virtualSessionsNav.map((link) => (
+              <li>
+                <a class="hover:text-txt-p dark:hover:text-darkmode-txt-p" href={link.url}>
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-txt-light dark:text-darkmode-txt-light">
+            Explore
+          </h3>
+          <ul class="space-y-2 text-sm text-txt-p/80 dark:text-darkmode-txt-p/80">
+            {footerQuickLinks.map((link) => (
+              <li>
+                <a class="hover:text-txt-p dark:hover:text-darkmode-txt-p" href={link.url}>
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-5 text-center text-sm text-txt-light dark:text-darkmode-txt-light lg:text-right">
+      <div class="space-y-2">
+        <div>
+          Global WhatsApp:
+          <a class="ml-1 underline" href="https://wa.me/19802542117" rel="noopener" target="_blank">
+            +1 980-254-2117
+          </a>
+        </div>
+        <div>
+          Nepal WhatsApp:
+          <a class="ml-1 underline" href="https://wa.me/9779702694437" rel="noopener" target="_blank">
+            +977 970-269-4437
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-12 border-t border-border/40 pt-6 text-center text-xs text-txt-light dark:border-darkmode-border/40 dark:text-darkmode-txt-light lg:flex lg:items-center lg:justify-between lg:text-left">
+      <div>(c) Christina 2025 - Tune Your Vibration</div>
+      <div class="mt-3 flex justify-center gap-4 lg:mt-0">
+        <a class="underline" href="/terms">Terms & Policies</a>
+        <a class="underline" href="/search">Search</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,10 @@
+<svg width="160" height="48" viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="158" height="46" rx="12" fill="url(#gradient)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+  <text x="80" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" letter-spacing="0.3em">BADGE</text>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="160" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CBD5F5"/>
+      <stop offset="1" stop-color="#93C5FD"/>
+    </linearGradient>
+  </defs>
+</svg>

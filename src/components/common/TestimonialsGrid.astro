@@ -1,0 +1,68 @@
+---
+interface Testimonial {
+  quote: string;
+  name: string;
+  descriptor?: string;
+  rating?: number;
+}
+
+interface Props {
+  heading?: string;
+  testimonials: Testimonial[];
+  columns?: 2 | 3;
+  className?: string;
+}
+
+const {
+  heading = "Client Reflections",
+  testimonials,
+  columns = 3,
+  className = "",
+} = Astro.props as Props;
+
+const gridCols =
+  columns === 3
+    ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
+    : "grid-cols-1 md:grid-cols-2";
+const gridColWrapper =
+  columns === 3 ? "xl:col-11 w-full" : "lg:col-9 w-full";
+const sectionClass = `section ${className}`.trim();
+---
+
+{testimonials.length > 0 && (
+  <section class={sectionClass}>
+    <div class="container">
+      {heading && (
+        <div class="row justify-center text-center mb-12">
+          <div class="lg:col-8">
+            <h2 class="text-h3 font-primary glow-heading">{heading}</h2>
+          </div>
+        </div>
+      )}
+      <div class="row justify-center">
+        <div class={`${gridColWrapper}`}>
+          <div class={`grid ${gridCols} gap-14 justify-items-center`}>
+            {testimonials.map((testimonial) => (
+              <blockquote class="glass flex h-full w-full max-w-[360px] flex-col gap-4 rounded-3xl border border-border/40 px-6 py-5 text-left shadow-lg dark:border-darkmode-border/40">
+                <p class="text-sm leading-relaxed glow-body md:text-base">
+                  "{testimonial.quote}"
+                </p>
+                <footer class="text-xs text-txt-light dark:text-darkmode-txt-light md:text-sm">
+                  <span class="font-semibold glow-heading text-base md:text-lg">
+                    {testimonial.name}
+                  </span>
+                  {testimonial.descriptor && (
+                    <>
+                      <span class="mx-1">/</span>
+                      <span>{testimonial.descriptor}</span>
+                    </>
+                  )}
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}

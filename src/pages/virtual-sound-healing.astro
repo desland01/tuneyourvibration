@@ -1,0 +1,15 @@
+---
+import EntryLayout from "@components/services/EntryLayout.astro";
+import type { ServicesEntry } from "@/types";
+import { getCollection } from "astro:content";
+
+const services = (await getCollection("services", ({ data }) => !data.draft)) as ServicesEntry[];
+
+const entry = services.find((service) => service.data.slug === "virtual-sound-healing");
+
+if (!entry) {
+  throw new Error("Virtual Sound Healing service entry not found.");
+}
+---
+
+<EntryLayout entry={entry} />

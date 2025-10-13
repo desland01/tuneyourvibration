@@ -1,0 +1,9 @@
+<script is:inline data-astro-rerun>
+  const enableDark = () => {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  };
+
+  enableDark();
+  document.addEventListener("astro:page-load", enableDark);
+</script>

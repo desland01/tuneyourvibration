@@ -73,24 +73,3 @@
 .rounded-xl {
   @apply rounded-[16px];
 }
-
-// Header Conditionals
-input#nav-toggle:checked + label #show-button {
-  @apply hidden;
-}
-input#nav-toggle:checked + label #hide-button {
-  @apply block;
-}
-input#nav-toggle:checked ~ #nav-menu {
-  @apply block;
-}
-
-// Reset nav state on medium screens and above
-@media (min-width: 768px) {
-  input#nav-toggle:checked ~ #nav-menu {
-    @apply flex;
-  }
-  #nav-menu {
-    @apply flex;
-  }
-}

@@ -1,3 +1,99 @@
+---
+import nepalDayAvif from "@assets/backgrounds/nepal-day.avif";
+import nepalDayJpg from "@assets/backgrounds/nepal-day.jpg";
+import nepalDayWebp from "@assets/backgrounds/nepal-day.webp";
+import nepalNightAvif from "@assets/backgrounds/nepal-night.avif";
+import nepalNightJpg from "@assets/backgrounds/nepal-night.jpg";
+import nepalNightWebp from "@assets/backgrounds/nepal-night.webp";
+
+const backgrounds = {
+  day: {
+    avif: nepalDayAvif.src,
+    jpg: nepalDayJpg.src,
+    webp: nepalDayWebp.src,
+  },
+  night: {
+    avif: nepalNightAvif.src,
+    jpg: nepalNightJpg.src,
+    webp: nepalNightWebp.src,
+  },
+};
+
+const overlay = "linear-gradient(rgba(19, 13, 39, 0.5), rgba(19, 13, 39, 0.5))";
+
+const backgroundCss = `
+  html::before,
+  html::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transition: opacity 0.25s ease-in-out;
+    pointer-events: none;
+  }
+
+  html::before {
+    background-image:
+      ${overlay},
+      url("${backgrounds.day.webp}");
+    opacity: 1;
+    background-color: #130d27;
+  }
+
+  html.dark::before {
+    opacity: 0;
+  }
+
+  html::after {
+    background-image:
+      ${overlay},
+      url("${backgrounds.night.webp}");
+    opacity: 0;
+    background-color: #130d27;
+  }
+
+  html.dark::after {
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    html::before,
+    html::after {
+      background-image: none;
+      background-color: rgba(19, 13, 39, 0.96);
+    }
+  }
+
+  @supports (background-image: image-set(url("${backgrounds.day.avif}") type("image/avif"))) {
+    html::before {
+      background-image:
+        ${overlay},
+        image-set(
+          url("${backgrounds.day.avif}") type("image/avif"),
+          url("${backgrounds.day.webp}") type("image/webp"),
+          url("${backgrounds.day.jpg}") type("image/jpeg")
+        );
+    }
+
+    html::after {
+      background-image:
+        ${overlay},
+        image-set(
+          url("${backgrounds.night.avif}") type("image/avif"),
+          url("${backgrounds.night.webp}") type("image/webp"),
+          url("${backgrounds.night.jpg}") type("image/jpeg")
+        );
+    }
+  }
+`;
+---
+
 <!-- ---
 // Twinkling Star Background 
 const numStars = 1600;
@@ -31,7 +127,7 @@ const stars = Array.from({ length: numStars }).map(() => ({
 <!-- Gradient Cycle Background -->
 <!-- <div
   class="gradient animate-cycleBg fixed top-0 left-0 w-full h-full -z-1 pointer-events-none overflow-hidden"
-/>
+/
 <style>
   .gradient {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -55,73 +151,4 @@ const stars = Array.from({ length: numStars }).map(() => ({
 </style> -->
 
 <!-- Dual Image Background -->
-<style>
-  html::before,
-  html::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    transition: opacity 0.25s ease-in-out;
-    pointer-events: none;
-  }
-
-  html::before {
-    background-image:
-      linear-gradient(rgba(19, 13, 39, 0.5), rgba(19, 13, 39, 0.5)),
-      url(/images/nepal-day.webp);
-    opacity: 1;
-    background-color: #130d27;
-  }
-
-  html.dark::before {
-    opacity: 0;
-  }
-
-  html::after {
-    background-image:
-      linear-gradient(rgba(19, 13, 39, 0.5), rgba(19, 13, 39, 0.5)),
-      url(/images/nepal-night.webp);
-    opacity: 0;
-    background-color: #130d27;
-  }
-
-  html.dark::after {
-    opacity: 1;
-  }
-
-  @media (max-width: 640px) {
-    html::before,
-    html::after {
-      background-image: none;
-      background-color: rgba(19, 13, 39, 0.96);
-    }
-  }
-
-  @supports (background-image: image-set(url("/images/nepal-day.avif") type("image/avif"))) {
-    html::before {
-      background-image:
-        linear-gradient(rgba(19, 13, 39, 0.5), rgba(19, 13, 39, 0.5)),
-        image-set(
-          url("/images/nepal-day.avif") type("image/avif"),
-          url("/images/nepal-day.webp") type("image/webp"),
-          url("/images/nepal-day.jpg") type("image/jpeg")
-        );
-    }
-
-    html::after {
-      background-image:
-        linear-gradient(rgba(19, 13, 39, 0.5), rgba(19, 13, 39, 0.5)),
-        image-set(
-          url("/images/nepal-night.avif") type("image/avif"),
-          url("/images/nepal-night.webp") type("image/webp"),
-          url("/images/nepal-night.jpg") type("image/jpeg")
-        );
-    }
-  }
-</style>
+<style is:inline set:html={backgroundCss}></style>

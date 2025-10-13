@@ -25,6 +25,15 @@ export default defineConfig({
     defaultStrategy: "hover"
   },
 
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        entrypoint: "astro/assets/services/compile",
+      },
+    },
+  },
+
   adapter: cloudflare(),
 
   integrations: [react(), sitemap(), AutoImport({
@@ -40,7 +49,8 @@ export default defineConfig({
       themes: { // https://shiki.style/themes
         light: "light-plus",
         dark: "dark-plus",
-      } 
+      },
+      langs: ["astro", "tsx", "ts", "js", "json", "bash", "yaml"],
     },
     extendDefaultPlugins: true
   },

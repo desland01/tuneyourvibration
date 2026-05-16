@@ -1,14 +1,28 @@
 {
-  "name": "christina-s-website",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "tune-vibration-website",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "astro": "^5.14.4"
+    "@gsap/react": "latest",
+    "gsap": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
   }
 }

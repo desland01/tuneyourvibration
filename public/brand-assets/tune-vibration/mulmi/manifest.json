@@ -1,0 +1,41 @@
+{
+  "scraped_at": "2026-05-16T06:22:59Z",
+  "albums": {
+    "silu": {
+      "shareUrl": "https://photos.app.goo.gl/Me1H6VCT3MxATqtE9",
+      "files": [
+        { "path": "mulmi/silu-01.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczN9tbCHb5HZjR7AlxZOtYDfOxLZUH8rTgRga1TJoaqr7OvrTeraGQR3K-_yU3njyi8KC6QKj4fm4gPYzWvNC9C6iCLhCiuV9iftDAyytPn4mNMFx8qb=s4096", "size_bytes": 142595, "width": 1063, "height": 1599 },
+        { "path": "mulmi/silu-02.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczPnuuBeln0I72rPfJM2fDP516DkDpTFYnF9vw04wAaiTGPABqkqueeDMGWTB8kBNkqrHxChmpCvOqTIQhTrKxRSUzdsv_oLfVm_d0Sed-58XDbLGlZr=s4096", "size_bytes": 283792, "width": 1029, "height": 1551 },
+        { "path": "mulmi/silu-03.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczMR4Ml-1BeFN-prvUTQqfCRJmk26nfv5zxEPV3MLpYT58d2KmFFdjeGMsS0vgcFIf5-29ItmvL5xjybQPlrRXMM_bipsgfKdARNW_tATS55saeW708g=s4096", "size_bytes": 1294159, "width": 2512, "height": 4089 },
+        { "path": "mulmi/silu-04.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczNRFLNC1b8L5xXtJVz2VIsRiDi1tqj8EUxMJ50YC0oSaYJrjcM2DZvIOLn0lp05F95DBpYBWob1BrVZY95meJwPAluEaF1aFa0dJl6rXE9aUT-wzWec=s4096", "size_bytes": 207543, "width": 1079, "height": 721 },
+        { "path": "mulmi/silu-05.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczN9xzq74RBBK7yfP_InQ0l4NOxe37SlSw9N7mcFVokCs_5LKz1wXm2_abBtCW3YZ1dOvfPqbpmpBdRrlisPiLpVx6uh6OFogA-zIGQqFPXMwGV-4isO=s4096", "size_bytes": 240270, "width": 1079, "height": 721 },
+        { "path": "mulmi/silu-06.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczOQjH-15dGsnH4iJCy11VhUBp6XI-YTQ4jsoqgXuznZZTUSjsxHLPuTEVhE2xf_g4q3i0-sFDbtoo1ecB2eQO7iYI3gtyLjzKqm8kcMOkUKMw83QrNA=s4096", "size_bytes": 599324, "width": 1079, "height": 1621 },
+        { "path": "mulmi/silu-07.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczOv-bPcxsXrmMz1kJdeMItcG9hAd9bwo_gKAMx7NaAuIz4JGaFYnajjVXY7vB8pmh8urDexG3GmWWcNOHG0UJwyjygn_iLLPlBC89sIrLK8nwag9b9J=s4096", "size_bytes": 261336, "width": 1079, "height": 721 },
+        { "path": "mulmi/silu-08.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczP0vAGeIuL-dpsGbuplgYygZ9E-rPqObdt_LLh5XSBL0GliWxLK9LKg05vZV3LqqLdBXYGHg3RPBNJj5j5Sa7s_YOXjoLXFmpDklRGt-OyGGAnM5m67=s4096", "size_bytes": 74963, "width": 1079, "height": 721 },
+        { "path": "mulmi/silu-09.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczN9vlJ1uPGH4usrUKoIbqYMHzA7JC6Ow9pyGmRaCGhLDFHrvToBALQULvQ2etti21Lymujh2ZJ9PTay6kPCYCPk_oRXYkue1tdhULg2bXVtubd_TwZU=s4096", "size_bytes": 286337, "width": 943, "height": 1546 },
+        { "path": "mulmi/silu-10.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczPlKMiApqi22BWTw2l3pnSwF6ZhhTsxlAyON7I_HbNEWSsqntMZJfUZYQRMUFfDuqMtcqJMrkInkOiLXn1hLnqPOFbWxau5Z-pKjjezkw89K_VtSJ3k=s4096", "size_bytes": 126860, "width": 680, "height": 1024 },
+        { "path": "mulmi/silu-11.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczP6Q2eK1bgp7zjkFiqGY9ZhtIZRApRY3lKY_I3eMLKFDu8ycpi5NNmDWsfBmZRNgWMs8tTeXZP_IJZ-Qs1qTwtSh_E6iKsT4iTRkJcEg0O7FWsuWDnZ=s4096", "size_bytes": 837177, "width": 3072, "height": 4096 },
+        { "path": "mulmi/silu-12.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczMcQy_0vB_ZaHHp0fQz5ro_e8HNbozj3BDsUqTEjNXdF1X6pB_-g2HSN5vhXgcvP_qbkbqvB2Iu9qrTjgpFPaBWipddB8YSWAQEr8szsHLd0myyxRPk=s4096", "size_bytes": 2014243, "width": 2908, "height": 3877 }
+      ]
+    },
+    "nepa": {
+      "shareUrl": "https://photos.app.goo.gl/dnuiwTEWfs4imQKR8",
+      "files": [
+        { "path": "mulmi/nepa-01.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczM_AIMkb-HYoMlPfhrFufT4sk5FBMtvNMuls2HpshWOHaCVraJLT-WAOyVRdvux6ZD-fSXnPxmoWu8-dYpW7xUI4h_GVcl_HM9JstnYyUqQM6vIj1Wg=s4096", "size_bytes": 191533, "width": 1063, "height": 1600 },
+        { "path": "mulmi/nepa-02.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczPhidKlV-1eXs7wQpoME0yK7rrPeUdrhygi-1ifdGV6TLMVOevE3LewEWLjOtWDUSVGy8EzSp-yViAmhS6BOj6cxqXcFPXcmzyiVsUoHLt0KnzWxao3=s4096", "size_bytes": 1447253, "width": 4096, "height": 2720 },
+        { "path": "mulmi/nepa-03.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczM1EspmGgjBQNT18LB2bWzI8EtgEy00Sl8eToJbZMI1zLBcflJ_enfgbYatVOSDiT02r3TT9vkcGaWPC7MiSbIakMo9F4obNJGQSwbsjQnqswQ06rD0=s4096", "size_bytes": 111753, "width": 971, "height": 645 },
+        { "path": "mulmi/nepa-04.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczO1jQwFofgrha0F8R1iqQbw22DvKz0WpdEOqQoTapvsCBLhZK8HiX8OgakzTkR6gpvXQbXRQRteWa15yG_MK7yI2A5g5e9-EFpZ92Zrb9VLnQsF-3r8=s4096", "size_bytes": 1327429, "width": 4096, "height": 2720 },
+        { "path": "mulmi/nepa-05.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczPlB03qPHrPJPfzKDOgQnVkgLUzdM4AvHrEG9JcUGUQZJSwAHTm0fVIumUeGTsD5qAbbfYAziXjMybmdF5G6Qrx6Vad4U_Sx5aZv1L0PxrMkNi3LCVa=s4096", "size_bytes": 939070, "width": 2720, "height": 4096 },
+        { "path": "mulmi/nepa-06.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczOKgFpf6MNkpXQnZ4DW4Qa_oZ3eCe5hDr8ba3Oy0wsi5cgMTZEfl-7ZyQr8NCbjewSfHoAlrWmYahOo22ztiPpCCjOQD8-W810L4PNjQuaqq0Q5MHoZ=s4096", "size_bytes": 172467, "width": 1076, "height": 1252 },
+        { "path": "mulmi/nepa-07.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczM9Mp2fiZsHvsx1dNDPjF0YJWoUtZkjUVEU1vkLVjOXTimHYxTU05w6jNwpiptKdbacM9Z7K1LepiIJQahF1pdyMOd4gpHTdFqwYNcM2-2uXF5Slp6Z=s4096", "size_bytes": 2359149, "width": 2668, "height": 4017 },
+        { "path": "mulmi/nepa-08.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczNhd36-zHjd7OutgHP-irHL82AIatJBU4soPrMUeVIU-BAGCjbI2FK8AnZEUBpMk8e0KT_FjhWtQHvJI5Sr0phxg4RWaUWxa7Oz80dzdIuPN6W_P6Qm=s4096", "size_bytes": 187750, "width": 1079, "height": 1115 },
+        { "path": "mulmi/nepa-09.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczOlF4gbdoWEBUyJ2826MPqw9OfT4z41Ov_u_TJ_HfPOJ1G8a4qAz_QZraMkxGtBctOUydgRbGcQNyQrbYTvjHTFrua-1B5b7nZj9EE-GY0RmTK4l9yq=s4096", "size_bytes": 227970, "width": 1059, "height": 1266 },
+        { "path": "mulmi/nepa-10.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczPfamEJg86wi-6y_rCKUEPx9Qd_PJF-2xCW2HkWAtfnRDmeacPfookEDzF9Xl-Cw_oJPZgNyYBbQgPzHWx0p2x6PA2ZgZxBPdcWVBNhpvVkbjDGIYIQ=s4096", "size_bytes": 1663845, "width": 4096, "height": 2720 },
+        { "path": "mulmi/nepa-11.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczOs3Fv-hdng4BP8AyO5ls1xOdiEk_V7fo8epJslY7qPvp9kVv9xKUV553xeie4XY5hD-eLIeb-osdbOyPK6KKJ25TkJG2LhUj20oIZ0rimMgaap7c5j=s4096", "size_bytes": 177273, "width": 1063, "height": 1097 },
+        { "path": "mulmi/nepa-12.jpg", "src": "https://lh3.googleusercontent.com/pw/AP1GczObRacbq8-AhH8tpRwgY_YCwcgINXljWmKDL5FgtMliFxnv48mnhv4vCJo9d-yOxxZHiAacdFqRvwB5hcUCZesNX0vxFHGM39S3GgJfDrZCB68qeQNx=s4096", "size_bytes": 371713, "width": 1059, "height": 1407 }
+      ]
+    }
+  },
+  "succeeded": 24,
+  "failed": 0
+}

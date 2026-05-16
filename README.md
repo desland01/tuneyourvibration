@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# Tune Vibration Energy Healing Website
 
-```sh
-npm create astro@latest -- --template minimal
+Actual public website build for Tune Vibration Energy Healing, rebuilt from the live source site at `https://www.tuneyourvibration.com/`.
+
+## Status
+
+- Source intake: complete via gstack `/browse`
+- Keyword plan: complete in `research/actual-website-page-plan.md`
+- Tune Vibration media assets: downloaded into `public/brand-assets/tune-vibration/`
+- Active homepage: `/`
+- Active booking route: `/book`
+- Active service routes: `/energy-healing`, `/sound-healing`, `/reiki-healing`, `/chakra-aura-clearing`, `/intuitive-readings`
+- Active Nepal routes: `/nepal-retreats`, `/kathmandu-valley-tours`, `/nepal-treks`
+- Trust/support routes: `/about-christina`, `/credentials`, `/testimonials`, `/after-care`
+- Legacy static proposal material: preserved under `site/` as inactive reference
+
+## Preview
+
+Run the Next.js app from the repo root:
+
+```bash
+cd /Users/thebeast/TYV
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Then open `http://127.0.0.1:3000/`.
 
-## 🚀 Project Structure
+## Build Checks
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run lint
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`npm run lint` is currently a strict TypeScript check because this migrated app does not have an ESLint ruleset yet.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Guardrails
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Build the actual public website, not a sales proposal.
+- Use only source-backed business facts, services, photos, videos, and business details.
+- Keep medical and healing copy careful: do not promise cures or guaranteed outcomes.
+- Phone CTA labels must read exactly `Call Now`.
+- Keep hero sections on auto-varying height, not rigid `100vh`, `100svh`, or `100dvh`.
+- Keep `design-systems/` untouched if it exists.
+- Before publishing, confirm the Vercel project root and project link. This checkout was previously linked to a Prince Bay Vercel project.
